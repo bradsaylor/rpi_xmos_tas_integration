@@ -13,7 +13,7 @@ int LED_i2c_write(unsigned long int led_state, char LED_PWM[16]);
 int LED_ERROR_i2c();
 int LED_ENABLE();
 int LED_DISABLE();
-
+int LED_OUT_OF_RANGE();
 
 
 /**********************************************************************************************/

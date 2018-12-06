@@ -243,3 +243,9 @@ int LED_DISABLE()
     
     return 0;
 }
+
+int LED_OUT_OF_RANGE()
+{
+
+    return 0;
+}

@@ -2,6 +2,7 @@
 #include "UI_functions.h"
 #include "LED_functions.h"
 #include "TAS_functions.h"
+#include "wiringPi.h"
 
 struct States {
     char power;
@@ -27,7 +28,7 @@ int initialize()
     state.volume = MUTE;
     state.avs_active = AVS_OFF;
     state.led_display_active = LED_DISPLAY_OFF;
-    state.error_detect = NO_ERROR
+    state.error_detect = NO_ERROR;
 
     LED_ENABLE();
     state.led_display_active = LED_DISPLAY_ON;
@@ -111,7 +112,7 @@ int main()
                     break;
                     
                 case SRC:
-                    if(state.avs_active != ACTIVE)
+                    if(state.avs_active != AVS_ON)
                     {
                         if(UI_SRC(state.source ^ 1)) state.source ^= 1;
                     }

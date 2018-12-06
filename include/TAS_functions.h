@@ -8,6 +8,7 @@ int TAS_PWR(char power);
 int TAS_VOL(char volume);
 int TAS_SRC(char source);
 int TAS_i2c_write(char ADDR, char REG, int DATA);
+int TAS_init();
 
 
 #define TAS_ADDR 0x56
