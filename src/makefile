@@ -10,10 +10,10 @@ LDIR=../lib
 LIBS= -lwiringPi
 
 
-_DEPS = i2c.h LED_functions.h rpi_xmos_tas_integration.h TAS_functions.h UI_functions.h
+_DEPS = i2c.h LED_functions.h rpi_xmos_tas_integration.h TAS_functions.h UI_functions.h debug.h script.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-_OBJ = i2c.o LED_functions.o TAS_functions.o UI_functions.o main.o
+_OBJ = i2c.o LED_functions.o TAS_functions.o UI_functions.o main.o debug.o script.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 $(ODIR)/%.o: %.c $(DEPS)

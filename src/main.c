@@ -3,6 +3,9 @@
 #include "LED_functions.h"
 #include "TAS_functions.h"
 #include "wiringPi.h"
+#include "debug.h"
+#include "script.h"
+#include <string.h>
 
 struct States {
     char power;
@@ -15,6 +18,9 @@ struct States {
 
 volatile char status = IDLE;
 volatile int LED_TIMER = 0;
+char script_filename[50];
+FILE *fp_script = NULL;
+FILE *fp_log = NULL;
 
 int initialize()
 {
@@ -70,17 +76,79 @@ void myInterrupt0(void) {
     status = (char)readPCA9554();   
 }
 
-int main()
+int option_handler(int argc, char *argv[])
 {
+    if(argc > 1)
+    {
+	fp_script = fopen(argv[1], "r");
+	strcpy(script_filename, argv[1]);
+	SCRIPT_OPT = 1;
+    }
+    if(argc > 2)
+    {
+	if(!strcmp(argv[2], "-ds"))
+	{
+	    DEBUG_OPT = 1;  
+	}
+	else if(!strcmp(argv[2], "-df"))
+	{
+	    DEBUG_OPT = 2;
+	    debug_file_init();
+	}
+	else if(!strcmp(argv[2], "-dsf"))
+	{
+	    DEBUG_OPT = 3;
+	    debug_file_init();
+	}
+	else
+	{
+	    printf("invalid options...exiting");
+	    return 1;
+	}
+    }
+    return 0;
+}
+
+int main(int argc, char *argv[])
+{
+    char script_string[MAX_SCRIPT_LINE];
+
+    if(option_handler(argc, argv)) return 1;
+
+    if(SCRIPT_OPT && DEBUG_OPT)
+    {
+        sprintf(debug_msg, "running script: %s", script_filename);
+        if(DEBUG_OPT) debug_out(DEBUG_OPT, "main", debug_msg);
+    }
+    
     initialize();
+
     char startLedTimerThread = piThreadCreate(LED_TIMER_THREAD);
     
     status = IDLE;
 
     while(1) {
-    
+	
+        if(SCRIPT_OPT)
+        {
+            if(fscanf(fp_script, "%s", script_string) == EOF) return 0;
+	    status = script_translate(script_string);
+	    if(status == -1)
+	    {
+		debug_out(DEBUG_OPT, "main", "invalid script command..exiting");
+		return 1;
+	    }
+        }
+        
         if(status != IDLE) 
         {
+	    
+	    if(DEBUG_OPT)
+	    {
+		sprintf(debug_msg, "status = %d", status);
+		debug_out(DEBUG_OPT, "main", debug_msg);
+	    }
+		
             LED_ENABLE();
             state.led_display_active = LED_DISPLAY_ON;
             LED_TIMER = LED_TIMER_MS;           

@@ -26,13 +26,20 @@ int main()
 */
 
 #include "wiringPiI2C.h"
+#include "debug.h"
 
 int i2c_write(char addr, char reg, char data)
 {
     int fd = wiringPiI2CSetup(addr);
     
-    int result = wiringPiI2CWriteReg8(fd, reg, addr);    
-     
+    int result = wiringPiI2CWriteReg8(fd, reg, data);    
+
+    if(DEBUG_OPT)
+    {
+	sprintf(debug_msg, "id:%x addr:%x data:%x", addr, reg, data);
+	debug_out(DEBUG_OPT, "i2c_write", debug_msg);
+    }
+    
     return result;
 }
 
@@ -42,6 +49,13 @@ int i2c_read(char addr, char reg)
 
     int result = wiringPiI2CReadReg8(fd, reg);    
     
+    if(DEBUG_OPT)
+    {
+	sprintf(debug_msg, "id:%x addr:%x value:%x", addr, reg, result);
+	debug_out(DEBUG_OPT, "i2c_read", debug_msg);
+    }
+
+
     return result;
     
 }
@@ -50,7 +64,14 @@ int i2c_write16(char addr, char reg, int data)
 {
     int fd = wiringPiI2CSetup(addr);
     
-    int result = wiringPiI2CWriteReg16(fd, reg, addr);    
+    int result = wiringPiI2CWriteReg16(fd, reg, data);
+
+    if(DEBUG_OPT)
+    {
+	sprintf(debug_msg, "id:%x addr:%x data:%x", addr, reg, data);
+	debug_out(DEBUG_OPT, "i2c_write", debug_msg);
+    }
+    
      
     return result;
 }
