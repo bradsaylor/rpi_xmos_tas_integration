@@ -131,8 +131,14 @@ int main(int argc, char *argv[])
 	
         if(SCRIPT_OPT)
         {
-            if(fscanf(fp_script, "%s", script_string) == EOF) return 0;
+            if(fscanf(fp_script, "%s", script_string) == EOF)
+	    {
+		if(DEBUG_OPT) debug_out(DEBUG_OPT, "main_loop", "end of script");
+		return 0;
+	    }
+	    
 	    status = script_translate(script_string);
+	    
 	    if(status == -1)
 	    {
 		debug_out(DEBUG_OPT, "main", "invalid script command..exiting");
@@ -146,7 +152,7 @@ int main(int argc, char *argv[])
 	    if(DEBUG_OPT)
 	    {
 		sprintf(debug_msg, "status = %d", status);
-		debug_out(DEBUG_OPT, "main", debug_msg);
+		debug_out(DEBUG_OPT, "main_switch", debug_msg);
 	    }
 		
             LED_ENABLE();
@@ -189,7 +195,9 @@ int main(int argc, char *argv[])
                 default:
                     UI_ERROR();
                     break;    
-            }    
+            }
+
+	    if(DEBUG_OPT) debug_out(DEBUG_OPT, "main_switch", "returning to idle");
             status = IDLE;
         }
     }

@@ -1,6 +1,7 @@
 #include "TAS_functions.h"
 #include "rpi_xmos_tas_integration.h"
 #include "i2c.h"
+#include "debug.h"
 
 const int ANA_DATA[18][3] = {
     {0x18, 0x7F, 0x50},
@@ -74,7 +75,7 @@ const int volume_table[16] = {
 
 int TAS_init()
 {
-    
+    if(DEBUG_OPT) debug_out(DEBUG_OPT, "TAS_init", "initializing");
     return 0;
 }
 
@@ -82,6 +83,12 @@ int TAS_init()
 
 int TAS_PWR(char power)
 {
+    if(DEBUG_OPT)
+    {
+	sprintf(debug_msg, "tas power to:%d", power);
+	debug_out(DEBUG_OPT, "TAS_PWR", debug_msg);
+    }
+    
     switch(power)
     {
         case PWR_ON:
@@ -102,6 +109,13 @@ int TAS_PWR(char power)
 
 int TAS_VOL(char volume)
 {
+    if(DEBUG_OPT)
+    {
+	sprintf(debug_msg, "tas volume to:%d", volume);
+	debug_out(DEBUG_OPT, "TAS_VOL", debug_msg);
+    }
+
+    
     TAS_i2c_write(TAS_ADDR, TAS_VOL_REG, volume_table[volume]);
   
     return 0;
@@ -109,6 +123,13 @@ int TAS_VOL(char volume)
 
 int TAS_SRC(char source)
 {
+    if(DEBUG_OPT)
+    {
+	sprintf(debug_msg, "tas src to:%d", source);
+	debug_out(DEBUG_OPT, "TAS_SRC", debug_msg);
+    }
+
+
     switch(source)
     {
         case OPT_SRC:

@@ -1,12 +1,15 @@
 #include "LED_functions.h"
 #include "rpi_xmos_tas_integration.h"
 #include "i2c.h"
+#include "debug.h"
 
 const char PWM_REG[16] = {0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8, 0x9,
 			  0xA, 0xB, 0xC, 0xD, 0xE, 0xF, 0x10, 0x11};
 
 int LED_init()
 {
+    if(DEBUG_OPT) debug_out(DEBUG_OPT, "LED_init", "initializing");
+    
     i2c_write(TLC59116_ADDR, MODE1_REG, MODE1_REG_DEFAULT);
     i2c_write(TLC59116_ADDR, MODE2_REG, MODE2_REG_DEFAULT);
 
@@ -29,6 +32,12 @@ int LED_PWR(char power)
 {
     unsigned long int led_state = LED_RESET_STATE;
     unsigned char LED_PWM[16] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+
+    if(DEBUG_OPT)
+    {
+	sprintf(debug_msg, "LED to power %d", power);
+	debug_out(DEBUG_OPT, "LED_PWR", debug_msg);
+    }
     
     switch(power)
     {
@@ -57,6 +66,12 @@ int LED_VOL(char volume)
 {
     unsigned long int led_state = LED_RESET_STATE;
     unsigned char LED_PWM[16] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+
+    if(DEBUG_OPT)
+    {
+        sprintf(debug_msg, "LED to volume:%d", volume);
+	debug_out(DEBUG_OPT, "LED_VOL", debug_msg);
+    }
 
     switch(volume)
     {
@@ -169,6 +184,12 @@ int LED_SRC(char source)
 {
     unsigned long int led_state = LED_RESET_STATE;
     unsigned char LED_PWM[16] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+
+    if(DEBUG_OPT)
+    {
+	sprintf(debug_msg, "LED to SRC:%d", source);
+	debug_out(DEBUG_OPT, "LED_SRC", debug_msg);
+    }
     
     switch(source)
     {
@@ -232,6 +253,8 @@ int LED_ERROR_i2c()
 
 int LED_ENABLE()
 {
+    if(DEBUG_OPT) debug_out(DEBUG_OPT, "LED_ENABLE", "enabling");
+    
     i2c_write(TLC59116_ADDR, MODE1_REG, (MODE1_REG_DEFAULT | LED_OSC_ENABLE));
             
     return 0;
@@ -239,6 +262,8 @@ int LED_ENABLE()
 
 int LED_DISABLE()
 {
+    if(DEBUG_OPT) debug_out(DEBUG_OPT, "LED_DISABLE", "disabling");
+
     i2c_write(TLC59116_ADDR, MODE1_REG, (MODE1_REG_DEFAULT & LED_OSC_DISABLE));
     
     return 0;
@@ -246,6 +271,6 @@ int LED_DISABLE()
 
 int LED_OUT_OF_RANGE()
 {
-
+    if(DEBUG_OPT) debug_out(DEBUG_OPT, "LED_RANGE", "out of range");
     return 0;
 }
