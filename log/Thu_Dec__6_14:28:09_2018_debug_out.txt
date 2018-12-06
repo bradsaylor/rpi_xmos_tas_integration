@@ -1,0 +1,596 @@
+main:		running script: test_script
+TAS_init:		initializing
+i2c_write:		id:38 addr:0 data:ff
+LED_init:		initializing
+i2c_write:		id:48 addr:0 data:11
+i2c_write:		id:48 addr:1 data:0
+i2c_write:		id:48 addr:14 data:0
+i2c_write:		id:48 addr:15 data:0
+i2c_write:		id:48 addr:16 data:0
+i2c_write:		id:48 addr:17 data:0
+i2c_write:		id:48 addr:2 data:0
+i2c_write:		id:48 addr:3 data:0
+i2c_write:		id:48 addr:4 data:0
+i2c_write:		id:48 addr:5 data:0
+i2c_write:		id:48 addr:6 data:0
+i2c_write:		id:48 addr:7 data:0
+i2c_write:		id:48 addr:8 data:0
+i2c_write:		id:48 addr:9 data:0
+i2c_write:		id:48 addr:a data:0
+i2c_write:		id:48 addr:b data:0
+i2c_write:		id:48 addr:c data:0
+i2c_write:		id:48 addr:d data:0
+i2c_write:		id:48 addr:e data:0
+i2c_write:		id:48 addr:f data:0
+i2c_write:		id:48 addr:10 data:0
+i2c_write:		id:48 addr:11 data:0
+LED_ENABLE:		enabling
+i2c_write:		id:48 addr:0 data:11
+TAS_PWR:		tas power to:1
+i2c_write:		id:56 addr:8 data:c0
+i2c_write:		id:56 addr:9 data:c0
+LED_PWR:		LED to power 1
+LED_ENABLE:		enabling
+i2c_write:		id:48 addr:0 data:11
+i2c_write:		id:48 addr:2 data:ff
+i2c_write:		id:48 addr:3 data:0
+i2c_write:		id:48 addr:4 data:0
+i2c_write:		id:48 addr:5 data:0
+i2c_write:		id:48 addr:6 data:0
+i2c_write:		id:48 addr:7 data:0
+i2c_write:		id:48 addr:8 data:0
+i2c_write:		id:48 addr:9 data:0
+i2c_write:		id:48 addr:a data:0
+i2c_write:		id:48 addr:b data:0
+i2c_write:		id:48 addr:c data:0
+i2c_write:		id:48 addr:d data:0
+i2c_write:		id:48 addr:e data:0
+i2c_write:		id:48 addr:f data:0
+i2c_write:		id:48 addr:10 data:0
+i2c_write:		id:48 addr:11 data:0
+i2c_write:		id:48 addr:14 data:3
+i2c_write:		id:48 addr:15 data:0
+i2c_write:		id:48 addr:16 data:0
+i2c_write:		id:48 addr:17 data:0
+TAS_VOL:		tas volume to:0
+i2c_write:		id:56 addr:7 data:3ff
+LED_VOL:		LED to volume:0
+i2c_write:		id:48 addr:2 data:0
+i2c_write:		id:48 addr:3 data:0
+i2c_write:		id:48 addr:4 data:0
+i2c_write:		id:48 addr:5 data:0
+i2c_write:		id:48 addr:6 data:0
+i2c_write:		id:48 addr:7 data:0
+i2c_write:		id:48 addr:8 data:0
+i2c_write:		id:48 addr:9 data:0
+i2c_write:		id:48 addr:a data:0
+i2c_write:		id:48 addr:b data:0
+i2c_write:		id:48 addr:c data:0
+i2c_write:		id:48 addr:d data:0
+i2c_write:		id:48 addr:e data:0
+i2c_write:		id:48 addr:f data:0
+i2c_write:		id:48 addr:10 data:0
+i2c_write:		id:48 addr:11 data:0
+i2c_write:		id:48 addr:14 data:0
+i2c_write:		id:48 addr:15 data:0
+i2c_write:		id:48 addr:16 data:0
+i2c_write:		id:48 addr:17 data:0
+TAS_SRC:		tas src to:1
+i2c_write:		id:18 addr:7f data:50
+i2c_write:		id:18 addr:0 data:1
+i2c_write:		id:18 addr:36 data:2
+i2c_write:		id:18 addr:7f data:50
+i2c_write:		id:18 addr:0 data:0
+i2c_write:		id:18 addr:1 data:7
+i2c_write:		id:18 addr:7f data:50
+i2c_write:		id:18 addr:0 data:1
+i2c_write:		id:18 addr:36 data:2
+i2c_write:		id:18 addr:7f data:50
+i2c_write:		id:18 addr:0 data:1
+i2c_write:		id:18 addr:3a data:2
+i2c_write:		id:18 addr:7f data:50
+i2c_write:		id:18 addr:0 data:0
+i2c_write:		id:18 addr:1 data:7
+i2c_write:		id:18 addr:7f data:50
+i2c_write:		id:18 addr:0 data:1
+i2c_write:		id:18 addr:3a data:2
+LED_SRC:		LED to SRC:1
+i2c_write:		id:48 addr:2 data:0
+i2c_write:		id:48 addr:3 data:ff
+i2c_write:		id:48 addr:4 data:0
+i2c_write:		id:48 addr:5 data:0
+i2c_write:		id:48 addr:6 data:0
+i2c_write:		id:48 addr:7 data:0
+i2c_write:		id:48 addr:8 data:0
+i2c_write:		id:48 addr:9 data:0
+i2c_write:		id:48 addr:a data:0
+i2c_write:		id:48 addr:b data:0
+i2c_write:		id:48 addr:c data:0
+i2c_write:		id:48 addr:d data:0
+i2c_write:		id:48 addr:e data:0
+i2c_write:		id:48 addr:f data:0
+i2c_write:		id:48 addr:10 data:0
+i2c_write:		id:48 addr:11 data:0
+i2c_write:		id:48 addr:14 data:c
+i2c_write:		id:48 addr:15 data:0
+i2c_write:		id:48 addr:16 data:0
+i2c_write:		id:48 addr:17 data:0
+initialize:		end of init
+
+
+
+main_switch:		status = 4
+LED_ENABLE:		enabling
+i2c_write:		id:48 addr:0 data:11
+TAS_VOL:		tas volume to:1
+i2c_write:		id:56 addr:7 data:200
+LED_VOL:		LED to volume:1
+i2c_write:		id:48 addr:2 data:0
+i2c_write:		id:48 addr:3 data:0
+i2c_write:		id:48 addr:4 data:55
+i2c_write:		id:48 addr:5 data:0
+i2c_write:		id:48 addr:6 data:0
+i2c_write:		id:48 addr:7 data:0
+i2c_write:		id:48 addr:8 data:0
+i2c_write:		id:48 addr:9 data:0
+i2c_write:		id:48 addr:a data:0
+i2c_write:		id:48 addr:b data:0
+i2c_write:		id:48 addr:c data:0
+i2c_write:		id:48 addr:d data:0
+i2c_write:		id:48 addr:e data:0
+i2c_write:		id:48 addr:f data:0
+i2c_write:		id:48 addr:10 data:0
+i2c_write:		id:48 addr:11 data:0
+i2c_write:		id:48 addr:14 data:30
+i2c_write:		id:48 addr:15 data:0
+i2c_write:		id:48 addr:16 data:0
+i2c_write:		id:48 addr:17 data:0
+main_switch:		returning to idle
+
+
+
+main_switch:		status = 4
+LED_ENABLE:		enabling
+i2c_write:		id:48 addr:0 data:11
+TAS_VOL:		tas volume to:2
+i2c_write:		id:56 addr:7 data:1d8
+LED_VOL:		LED to volume:2
+i2c_write:		id:48 addr:2 data:0
+i2c_write:		id:48 addr:3 data:0
+i2c_write:		id:48 addr:4 data:7f
+i2c_write:		id:48 addr:5 data:0
+i2c_write:		id:48 addr:6 data:0
+i2c_write:		id:48 addr:7 data:0
+i2c_write:		id:48 addr:8 data:0
+i2c_write:		id:48 addr:9 data:0
+i2c_write:		id:48 addr:a data:0
+i2c_write:		id:48 addr:b data:0
+i2c_write:		id:48 addr:c data:0
+i2c_write:		id:48 addr:d data:0
+i2c_write:		id:48 addr:e data:0
+i2c_write:		id:48 addr:f data:0
+i2c_write:		id:48 addr:10 data:0
+i2c_write:		id:48 addr:11 data:0
+i2c_write:		id:48 addr:14 data:30
+i2c_write:		id:48 addr:15 data:0
+i2c_write:		id:48 addr:16 data:0
+i2c_write:		id:48 addr:17 data:0
+main_switch:		returning to idle
+
+
+
+main_switch:		status = 4
+LED_ENABLE:		enabling
+i2c_write:		id:48 addr:0 data:11
+TAS_VOL:		tas volume to:3
+i2c_write:		id:56 addr:7 data:1b0
+LED_VOL:		LED to volume:3
+i2c_write:		id:48 addr:2 data:0
+i2c_write:		id:48 addr:3 data:0
+i2c_write:		id:48 addr:4 data:ff
+i2c_write:		id:48 addr:5 data:0
+i2c_write:		id:48 addr:6 data:0
+i2c_write:		id:48 addr:7 data:0
+i2c_write:		id:48 addr:8 data:0
+i2c_write:		id:48 addr:9 data:0
+i2c_write:		id:48 addr:a data:0
+i2c_write:		id:48 addr:b data:0
+i2c_write:		id:48 addr:c data:0
+i2c_write:		id:48 addr:d data:0
+i2c_write:		id:48 addr:e data:0
+i2c_write:		id:48 addr:f data:0
+i2c_write:		id:48 addr:10 data:0
+i2c_write:		id:48 addr:11 data:0
+i2c_write:		id:48 addr:14 data:30
+i2c_write:		id:48 addr:15 data:0
+i2c_write:		id:48 addr:16 data:0
+i2c_write:		id:48 addr:17 data:0
+main_switch:		returning to idle
+
+
+
+main_switch:		status = 4
+LED_ENABLE:		enabling
+i2c_write:		id:48 addr:0 data:11
+TAS_VOL:		tas volume to:4
+i2c_write:		id:56 addr:7 data:19c
+LED_VOL:		LED to volume:4
+i2c_write:		id:48 addr:2 data:0
+i2c_write:		id:48 addr:3 data:0
+i2c_write:		id:48 addr:4 data:ff
+i2c_write:		id:48 addr:5 data:0
+i2c_write:		id:48 addr:6 data:0
+i2c_write:		id:48 addr:7 data:55
+i2c_write:		id:48 addr:8 data:0
+i2c_write:		id:48 addr:9 data:0
+i2c_write:		id:48 addr:a data:0
+i2c_write:		id:48 addr:b data:0
+i2c_write:		id:48 addr:c data:0
+i2c_write:		id:48 addr:d data:0
+i2c_write:		id:48 addr:e data:0
+i2c_write:		id:48 addr:f data:0
+i2c_write:		id:48 addr:10 data:0
+i2c_write:		id:48 addr:11 data:0
+i2c_write:		id:48 addr:14 data:30
+i2c_write:		id:48 addr:15 data:c
+i2c_write:		id:48 addr:16 data:0
+i2c_write:		id:48 addr:17 data:0
+main_switch:		returning to idle
+
+
+
+main_switch:		status = 4
+LED_ENABLE:		enabling
+i2c_write:		id:48 addr:0 data:11
+TAS_VOL:		tas volume to:5
+i2c_write:		id:56 addr:7 data:188
+LED_VOL:		LED to volume:5
+i2c_write:		id:48 addr:2 data:0
+i2c_write:		id:48 addr:3 data:0
+i2c_write:		id:48 addr:4 data:ff
+i2c_write:		id:48 addr:5 data:0
+i2c_write:		id:48 addr:6 data:0
+i2c_write:		id:48 addr:7 data:7f
+i2c_write:		id:48 addr:8 data:0
+i2c_write:		id:48 addr:9 data:0
+i2c_write:		id:48 addr:a data:0
+i2c_write:		id:48 addr:b data:0
+i2c_write:		id:48 addr:c data:0
+i2c_write:		id:48 addr:d data:0
+i2c_write:		id:48 addr:e data:0
+i2c_write:		id:48 addr:f data:0
+i2c_write:		id:48 addr:10 data:0
+i2c_write:		id:48 addr:11 data:0
+i2c_write:		id:48 addr:14 data:30
+i2c_write:		id:48 addr:15 data:c
+i2c_write:		id:48 addr:16 data:0
+i2c_write:		id:48 addr:17 data:0
+main_switch:		returning to idle
+
+
+
+main_switch:		status = 4
+LED_ENABLE:		enabling
+i2c_write:		id:48 addr:0 data:11
+TAS_VOL:		tas volume to:6
+i2c_write:		id:56 addr:7 data:174
+LED_VOL:		LED to volume:6
+i2c_write:		id:48 addr:2 data:0
+i2c_write:		id:48 addr:3 data:0
+i2c_write:		id:48 addr:4 data:ff
+i2c_write:		id:48 addr:5 data:0
+i2c_write:		id:48 addr:6 data:0
+i2c_write:		id:48 addr:7 data:ff
+i2c_write:		id:48 addr:8 data:0
+i2c_write:		id:48 addr:9 data:0
+i2c_write:		id:48 addr:a data:0
+i2c_write:		id:48 addr:b data:0
+i2c_write:		id:48 addr:c data:0
+i2c_write:		id:48 addr:d data:0
+i2c_write:		id:48 addr:e data:0
+i2c_write:		id:48 addr:f data:0
+i2c_write:		id:48 addr:10 data:0
+i2c_write:		id:48 addr:11 data:0
+i2c_write:		id:48 addr:14 data:30
+i2c_write:		id:48 addr:15 data:c
+i2c_write:		id:48 addr:16 data:0
+i2c_write:		id:48 addr:17 data:0
+main_switch:		returning to idle
+
+
+
+main_switch:		status = 4
+LED_ENABLE:		enabling
+i2c_write:		id:48 addr:0 data:11
+TAS_VOL:		tas volume to:7
+i2c_write:		id:56 addr:7 data:160
+LED_VOL:		LED to volume:7
+i2c_write:		id:48 addr:2 data:0
+i2c_write:		id:48 addr:3 data:0
+i2c_write:		id:48 addr:4 data:ff
+i2c_write:		id:48 addr:5 data:0
+i2c_write:		id:48 addr:6 data:0
+i2c_write:		id:48 addr:7 data:ff
+i2c_write:		id:48 addr:8 data:0
+i2c_write:		id:48 addr:9 data:0
+i2c_write:		id:48 addr:a data:55
+i2c_write:		id:48 addr:b data:0
+i2c_write:		id:48 addr:c data:0
+i2c_write:		id:48 addr:d data:0
+i2c_write:		id:48 addr:e data:0
+i2c_write:		id:48 addr:f data:0
+i2c_write:		id:48 addr:10 data:0
+i2c_write:		id:48 addr:11 data:0
+i2c_write:		id:48 addr:14 data:30
+i2c_write:		id:48 addr:15 data:c
+i2c_write:		id:48 addr:16 data:3
+i2c_write:		id:48 addr:17 data:0
+main_switch:		returning to idle
+
+
+
+main_switch:		status = 4
+LED_ENABLE:		enabling
+i2c_write:		id:48 addr:0 data:11
+TAS_VOL:		tas volume to:8
+i2c_write:		id:56 addr:7 data:14c
+LED_VOL:		LED to volume:8
+i2c_write:		id:48 addr:2 data:0
+i2c_write:		id:48 addr:3 data:0
+i2c_write:		id:48 addr:4 data:ff
+i2c_write:		id:48 addr:5 data:0
+i2c_write:		id:48 addr:6 data:0
+i2c_write:		id:48 addr:7 data:ff
+i2c_write:		id:48 addr:8 data:0
+i2c_write:		id:48 addr:9 data:0
+i2c_write:		id:48 addr:a data:7f
+i2c_write:		id:48 addr:b data:0
+i2c_write:		id:48 addr:c data:0
+i2c_write:		id:48 addr:d data:0
+i2c_write:		id:48 addr:e data:0
+i2c_write:		id:48 addr:f data:0
+i2c_write:		id:48 addr:10 data:0
+i2c_write:		id:48 addr:11 data:0
+i2c_write:		id:48 addr:14 data:30
+i2c_write:		id:48 addr:15 data:c
+i2c_write:		id:48 addr:16 data:3
+i2c_write:		id:48 addr:17 data:0
+main_switch:		returning to idle
+
+
+
+main_switch:		status = 4
+LED_ENABLE:		enabling
+i2c_write:		id:48 addr:0 data:11
+TAS_VOL:		tas volume to:9
+i2c_write:		id:56 addr:7 data:138
+LED_VOL:		LED to volume:9
+i2c_write:		id:48 addr:2 data:0
+i2c_write:		id:48 addr:3 data:0
+i2c_write:		id:48 addr:4 data:ff
+i2c_write:		id:48 addr:5 data:0
+i2c_write:		id:48 addr:6 data:0
+i2c_write:		id:48 addr:7 data:ff
+i2c_write:		id:48 addr:8 data:0
+i2c_write:		id:48 addr:9 data:0
+i2c_write:		id:48 addr:a data:ff
+i2c_write:		id:48 addr:b data:0
+i2c_write:		id:48 addr:c data:0
+i2c_write:		id:48 addr:d data:0
+i2c_write:		id:48 addr:e data:0
+i2c_write:		id:48 addr:f data:0
+i2c_write:		id:48 addr:10 data:0
+i2c_write:		id:48 addr:11 data:0
+i2c_write:		id:48 addr:14 data:30
+i2c_write:		id:48 addr:15 data:c
+i2c_write:		id:48 addr:16 data:3
+i2c_write:		id:48 addr:17 data:0
+main_switch:		returning to idle
+
+
+
+main_switch:		status = 4
+LED_ENABLE:		enabling
+i2c_write:		id:48 addr:0 data:11
+TAS_VOL:		tas volume to:10
+i2c_write:		id:56 addr:7 data:124
+LED_VOL:		LED to volume:10
+i2c_write:		id:48 addr:2 data:0
+i2c_write:		id:48 addr:3 data:0
+i2c_write:		id:48 addr:4 data:ff
+i2c_write:		id:48 addr:5 data:0
+i2c_write:		id:48 addr:6 data:0
+i2c_write:		id:48 addr:7 data:ff
+i2c_write:		id:48 addr:8 data:0
+i2c_write:		id:48 addr:9 data:0
+i2c_write:		id:48 addr:a data:ff
+i2c_write:		id:48 addr:b data:0
+i2c_write:		id:48 addr:c data:0
+i2c_write:		id:48 addr:d data:55
+i2c_write:		id:48 addr:e data:0
+i2c_write:		id:48 addr:f data:0
+i2c_write:		id:48 addr:10 data:0
+i2c_write:		id:48 addr:11 data:0
+i2c_write:		id:48 addr:14 data:30
+i2c_write:		id:48 addr:15 data:c
+i2c_write:		id:48 addr:16 data:c3
+i2c_write:		id:48 addr:17 data:0
+main_switch:		returning to idle
+
+
+
+main_switch:		status = 4
+LED_ENABLE:		enabling
+i2c_write:		id:48 addr:0 data:11
+TAS_VOL:		tas volume to:11
+i2c_write:		id:56 addr:7 data:110
+LED_VOL:		LED to volume:11
+i2c_write:		id:48 addr:2 data:0
+i2c_write:		id:48 addr:3 data:0
+i2c_write:		id:48 addr:4 data:ff
+i2c_write:		id:48 addr:5 data:0
+i2c_write:		id:48 addr:6 data:0
+i2c_write:		id:48 addr:7 data:ff
+i2c_write:		id:48 addr:8 data:0
+i2c_write:		id:48 addr:9 data:0
+i2c_write:		id:48 addr:a data:ff
+i2c_write:		id:48 addr:b data:0
+i2c_write:		id:48 addr:c data:0
+i2c_write:		id:48 addr:d data:7f
+i2c_write:		id:48 addr:e data:0
+i2c_write:		id:48 addr:f data:0
+i2c_write:		id:48 addr:10 data:0
+i2c_write:		id:48 addr:11 data:0
+i2c_write:		id:48 addr:14 data:30
+i2c_write:		id:48 addr:15 data:c
+i2c_write:		id:48 addr:16 data:c3
+i2c_write:		id:48 addr:17 data:0
+main_switch:		returning to idle
+
+
+
+main_switch:		status = 4
+LED_ENABLE:		enabling
+i2c_write:		id:48 addr:0 data:11
+TAS_VOL:		tas volume to:12
+i2c_write:		id:56 addr:7 data:fc
+LED_VOL:		LED to volume:12
+i2c_write:		id:48 addr:2 data:0
+i2c_write:		id:48 addr:3 data:0
+i2c_write:		id:48 addr:4 data:ff
+i2c_write:		id:48 addr:5 data:0
+i2c_write:		id:48 addr:6 data:0
+i2c_write:		id:48 addr:7 data:ff
+i2c_write:		id:48 addr:8 data:0
+i2c_write:		id:48 addr:9 data:0
+i2c_write:		id:48 addr:a data:ff
+i2c_write:		id:48 addr:b data:0
+i2c_write:		id:48 addr:c data:0
+i2c_write:		id:48 addr:d data:ff
+i2c_write:		id:48 addr:e data:0
+i2c_write:		id:48 addr:f data:0
+i2c_write:		id:48 addr:10 data:0
+i2c_write:		id:48 addr:11 data:0
+i2c_write:		id:48 addr:14 data:30
+i2c_write:		id:48 addr:15 data:c
+i2c_write:		id:48 addr:16 data:c3
+i2c_write:		id:48 addr:17 data:0
+main_switch:		returning to idle
+
+
+
+main_switch:		status = 4
+LED_ENABLE:		enabling
+i2c_write:		id:48 addr:0 data:11
+TAS_VOL:		tas volume to:13
+i2c_write:		id:56 addr:7 data:e8
+LED_VOL:		LED to volume:13
+i2c_write:		id:48 addr:2 data:0
+i2c_write:		id:48 addr:3 data:0
+i2c_write:		id:48 addr:4 data:ff
+i2c_write:		id:48 addr:5 data:0
+i2c_write:		id:48 addr:6 data:0
+i2c_write:		id:48 addr:7 data:ff
+i2c_write:		id:48 addr:8 data:0
+i2c_write:		id:48 addr:9 data:0
+i2c_write:		id:48 addr:a data:ff
+i2c_write:		id:48 addr:b data:0
+i2c_write:		id:48 addr:c data:0
+i2c_write:		id:48 addr:d data:ff
+i2c_write:		id:48 addr:e data:0
+i2c_write:		id:48 addr:f data:0
+i2c_write:		id:48 addr:10 data:55
+i2c_write:		id:48 addr:11 data:0
+i2c_write:		id:48 addr:14 data:30
+i2c_write:		id:48 addr:15 data:c
+i2c_write:		id:48 addr:16 data:c3
+i2c_write:		id:48 addr:17 data:30
+main_switch:		returning to idle
+
+
+
+main_switch:		status = 4
+LED_ENABLE:		enabling
+i2c_write:		id:48 addr:0 data:11
+TAS_VOL:		tas volume to:14
+i2c_write:		id:56 addr:7 data:d4
+LED_VOL:		LED to volume:14
+i2c_write:		id:48 addr:2 data:0
+i2c_write:		id:48 addr:3 data:0
+i2c_write:		id:48 addr:4 data:ff
+i2c_write:		id:48 addr:5 data:0
+i2c_write:		id:48 addr:6 data:0
+i2c_write:		id:48 addr:7 data:ff
+i2c_write:		id:48 addr:8 data:0
+i2c_write:		id:48 addr:9 data:0
+i2c_write:		id:48 addr:a data:ff
+i2c_write:		id:48 addr:b data:0
+i2c_write:		id:48 addr:c data:0
+i2c_write:		id:48 addr:d data:ff
+i2c_write:		id:48 addr:e data:0
+i2c_write:		id:48 addr:f data:0
+i2c_write:		id:48 addr:10 data:7f
+i2c_write:		id:48 addr:11 data:0
+i2c_write:		id:48 addr:14 data:30
+i2c_write:		id:48 addr:15 data:c
+i2c_write:		id:48 addr:16 data:c3
+i2c_write:		id:48 addr:17 data:30
+main_switch:		returning to idle
+
+
+
+main_switch:		status = 4
+LED_ENABLE:		enabling
+i2c_write:		id:48 addr:0 data:11
+TAS_VOL:		tas volume to:15
+i2c_write:		id:56 addr:7 data:c0
+LED_VOL:		LED to volume:15
+i2c_write:		id:48 addr:2 data:0
+i2c_write:		id:48 addr:3 data:0
+i2c_write:		id:48 addr:4 data:ff
+i2c_write:		id:48 addr:5 data:0
+i2c_write:		id:48 addr:6 data:0
+i2c_write:		id:48 addr:7 data:ff
+i2c_write:		id:48 addr:8 data:0
+i2c_write:		id:48 addr:9 data:0
+i2c_write:		id:48 addr:a data:ff
+i2c_write:		id:48 addr:b data:0
+i2c_write:		id:48 addr:c data:0
+i2c_write:		id:48 addr:d data:ff
+i2c_write:		id:48 addr:e data:0
+i2c_write:		id:48 addr:f data:0
+i2c_write:		id:48 addr:10 data:ff
+i2c_write:		id:48 addr:11 data:0
+i2c_write:		id:48 addr:14 data:30
+i2c_write:		id:48 addr:15 data:c
+i2c_write:		id:48 addr:16 data:c3
+i2c_write:		id:48 addr:17 data:30
+main_switch:		returning to idle
+
+
+
+main_switch:		status = 4
+LED_ENABLE:		enabling
+i2c_write:		id:48 addr:0 data:11
+LED_RANGE:		out of range
+main_switch:		returning to idle
+
+
+
+main_switch:		status = 4
+LED_ENABLE:		enabling
+i2c_write:		id:48 addr:0 data:11
+LED_RANGE:		out of range
+main_switch:		returning to idle
+
+
+
+main_switch:		status = 4
+LED_ENABLE:		enabling
+i2c_write:		id:48 addr:0 data:11
+LED_RANGE:		out of range
+main_switch:		returning to idle
+
+
+
+main_loop:		end of script

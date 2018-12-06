@@ -44,6 +44,7 @@ int initialize()
     UI_VOL(MUTE);
     UI_SRC(AUX_SRC);
     
+    if(DEBUG_OPT) debug_out(DEBUG_OPT, "initialize", "end of init\n\n\n");
     
     return 0;
 }
@@ -66,6 +67,8 @@ PI_THREAD(LED_TIMER_THREAD)
             if(LED_TIMER == 1)
             {
                 LED_PWR(PWR_ON);
+
+                if(DEBUG_OPT) debug_out(DEBUG_OPT, "timer_thread", "timer expired");
             }
             LED_TIMER--;
         }
@@ -80,22 +83,16 @@ int option_handler(int argc, char *argv[])
 {
     if(argc > 1)
     {
-	fp_script = fopen(argv[1], "r");
-	strcpy(script_filename, argv[1]);
-	SCRIPT_OPT = 1;
-    }
-    if(argc > 2)
-    {
-	if(!strcmp(argv[2], "-ds"))
+	if(!strcmp(argv[1], "-ds"))
 	{
 	    DEBUG_OPT = 1;  
 	}
-	else if(!strcmp(argv[2], "-df"))
+	else if(!strcmp(argv[1], "-df"))
 	{
 	    DEBUG_OPT = 2;
 	    debug_file_init();
 	}
-	else if(!strcmp(argv[2], "-dsf"))
+	else if(!strcmp(argv[1], "-dsf"))
 	{
 	    DEBUG_OPT = 3;
 	    debug_file_init();
@@ -105,6 +102,13 @@ int option_handler(int argc, char *argv[])
 	    printf("invalid options...exiting");
 	    return 1;
 	}
+    }
+    if(argc > 2)
+    {
+	fp_script = fopen(argv[2], "r");
+	strcpy(script_filename, argv[2]);
+
+	SCRIPT_OPT = 1;
     }
     return 0;
 }
@@ -123,6 +127,7 @@ int main(int argc, char *argv[])
     
     initialize();
 
+    if(DEBUG_OPT) debug_out(DEBUG_OPT, "main", "starting LED timer");
     char startLedTimerThread = piThreadCreate(LED_TIMER_THREAD);
     
     status = IDLE;
@@ -178,7 +183,7 @@ int main(int argc, char *argv[])
                 case VOL_DOWN:
                     if(state.volume > MIN_VOL)
                     {
-                        if(UI_VOL(state.volume - 1)) state.volume--;
+                        if(!UI_VOL(state.volume - 1)) state.volume--;
                     } else
                     {
                         LED_OUT_OF_RANGE();
@@ -188,7 +193,7 @@ int main(int argc, char *argv[])
                 case SRC:
                     if(state.avs_active != AVS_ON)
                     {
-                        if(UI_SRC(state.source ^ 1)) state.source ^= 1;
+                        if(!UI_SRC(state.source ^ 1)) state.source ^= 1;
                     }
                     break;
                     
@@ -197,7 +202,7 @@ int main(int argc, char *argv[])
                     break;    
             }
 
-	    if(DEBUG_OPT) debug_out(DEBUG_OPT, "main_switch", "returning to idle");
+	    if(DEBUG_OPT) debug_out(DEBUG_OPT, "main_switch", "returning to idle\n\n\n");
             status = IDLE;
         }
     }

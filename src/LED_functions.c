@@ -237,7 +237,8 @@ int LED_i2c_write(unsigned long int led_state, char LED_PWM[16])
     
     i2c_write(TLC59116_ADDR, LED_OUT_0_REG, LED_OUT_0);
     i2c_write(TLC59116_ADDR, LED_OUT_1_REG, LED_OUT_1);
-    i2c_write(TLC59116_ADDR, LED_OUT_2_REG, LED_OUT_2);    
+    i2c_write(TLC59116_ADDR, LED_OUT_2_REG, LED_OUT_2);
+    i2c_write(TLC59116_ADDR, LED_OUT_3_REG, LED_OUT_3);    
     
     return 0;
 }

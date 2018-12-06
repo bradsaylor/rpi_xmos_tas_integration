@@ -30,7 +30,7 @@ void myInterrupt0(void);
 #define NO_ERROR 0
 #define ERROR_DETECTED 1
 
-#define LED_TIMER_MS 2000
+#define LED_TIMER_MS 4000
 
 #define MAX_VOL 15
 #define MIN_VOL 0
