@@ -18,6 +18,7 @@ struct States {
 
 volatile char status = IDLE;
 volatile int LED_TIMER = 0;
+volatile char DEBOUNCE_ON = 0;
 char script_filename[50];
 FILE *fp_script = NULL;
 FILE *fp_log = NULL;
@@ -75,8 +76,25 @@ PI_THREAD(LED_TIMER_THREAD)
     }    
 }
 
+PI_THREAD(BUTTON_DEBOUNCE)
+{
+    while(1)
+    {
+        if(DEBOUNCE_ON)
+        {
+            printf("delaying\n");
+            delay(15);
+            DEBOUNCE_ON = 0;
+            printf("debounce cleared\n");
+        }
+    }
+
+}
+
 void myInterrupt0(void) {
-    status = (char)readPCA9554();   
+ 
+    status = (char)readPCA9554(); 
+    if(DEBUG_OPT) debug_out(DEBUG_OPT, "INT", "***<BUTTON PRESS>***"); 
 }
 
 int option_handler(int argc, char *argv[])
@@ -129,6 +147,7 @@ int main(int argc, char *argv[])
 
     if(DEBUG_OPT) debug_out(DEBUG_OPT, "main", "starting LED timer");
     char startLedTimerThread = piThreadCreate(LED_TIMER_THREAD);
+    char startDebounceThread = piThreadCreate(BUTTON_DEBOUNCE);
     
     status = IDLE;
 
@@ -151,8 +170,11 @@ int main(int argc, char *argv[])
 	    }
         }
         
-        if(status != IDLE) 
+        if((status != IDLE) && (!DEBOUNCE_ON)) 
         {
+            //delay(500);
+
+            DEBOUNCE_ON = 1;
 	    
 	    if(DEBUG_OPT)
 	    {

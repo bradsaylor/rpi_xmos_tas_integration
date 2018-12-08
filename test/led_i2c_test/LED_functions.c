@@ -256,7 +256,7 @@ int LED_ENABLE()
 {
     if(DEBUG_OPT) debug_out(DEBUG_OPT, "LED_ENABLE", "enabling");
     
-    i2c_write(TLC59116_ADDR, MODE1_REG, (MODE1_REG_DEFAULT & LED_OSC_ENABLE));
+    i2c_write(TLC59116_ADDR, MODE1_REG, (MODE1_REG_DEFAULT | LED_OSC_ENABLE));
             
     return 0;
 }
@@ -265,7 +265,7 @@ int LED_DISABLE()
 {
     if(DEBUG_OPT) debug_out(DEBUG_OPT, "LED_DISABLE", "disabling");
 
-    i2c_write(TLC59116_ADDR, MODE1_REG, (MODE1_REG_DEFAULT | LED_OSC_DISABLE));
+    i2c_write(TLC59116_ADDR, MODE1_REG, (MODE1_REG_DEFAULT & LED_OSC_DISABLE));
     
     return 0;
 }

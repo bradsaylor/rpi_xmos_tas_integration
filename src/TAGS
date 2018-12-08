@@ -2,6 +2,82 @@
 ../test/script_test/script.c,42
 int main(int arc, char *argv[])main3,20
 
+../test/led_i2c_test/LED_functions.h,1852
+#define LED_FUNCTIONS_HLED_FUNCTIONS_H2,25
+#define TLC59116_ADDR TLC59116_ADDR20,559
+#define LED_OUT_0_REG LED_OUT_0_REG22,589
+#define LED_OUT_1_REG LED_OUT_1_REG23,617
+#define LED_OUT_2_REG LED_OUT_2_REG24,645
+#define LED_OUT_3_REG LED_OUT_3_REG25,673
+#define LED_OUT_0_REG_DEFAULT LED_OUT_0_REG_DEFAULT27,703
+#define LED_OUT_1_REG_DEFAULT LED_OUT_1_REG_DEFAULT28,739
+#define LED_OUT_2_REG_DEFAULT LED_OUT_2_REG_DEFAULT29,775
+#define LED_OUT_3_REG_DEFAULT LED_OUT_3_REG_DEFAULT30,811
+#define MODE1_REG MODE1_REG32,849
+#define MODE2_REG MODE2_REG33,873
+#define MODE1_REG_DEFAULT MODE1_REG_DEFAULT35,899
+#define MODE2_REG_DEFAULT MODE2_REG_DEFAULT36,931
+#define LED_OSC_ENABLE LED_OSC_ENABLE38,965
+#define LED_OSC_DISABLE LED_OSC_DISABLE39,994
+#define PWM_REG_DEFAULT PWM_REG_DEFAULT42,1059
+#define LED_RESET_STATE LED_RESET_STATE45,1189
+#define LED_1R_ON LED_1R_ON47,1227
+#define LED_1G_ON LED_1G_ON48,1257
+#define LED_1B_ON LED_1B_ON49,1288
+#define LED_2R_ON LED_2R_ON51,1320
+#define LED_2G_ON LED_2G_ON52,1350
+#define LED_2B_ON LED_2B_ON53,1380
+#define LED_3R_ON LED_3R_ON55,1412
+#define LED_3G_ON LED_3G_ON56,1442
+#define LED_3B_ON LED_3B_ON57,1472
+#define LED_4R_ON LED_4R_ON59,1504
+#define LED_4G_ON LED_4G_ON60,1534
+#define LED_4B_ON LED_4B_ON61,1564
+#define LED_5R_ON LED_5R_ON63,1596
+#define LED_5G_ON LED_5G_ON64,1626
+#define LED_5B_ON LED_5B_ON65,1656
+#define DEFAULT_LED_PWM DEFAULT_LED_PWM67,1688
+#define _1R _1R69,1719
+#define _1G _1G70,1734
+#define _1B _1B71,1749
+#define _2R _2R72,1764
+#define _2G _2G73,1779
+#define _2B _2B74,1794
+#define _3R _3R75,1809
+#define _3G _3G76,1824
+#define _3B _3B77,1839
+#define _4R _4R78,1854
+#define _4G _4G79,1869
+#define _4B _4B80,1885
+#define _5R _5R81,1901
+#define _5G _5G82,1917
+#define _5B _5B83,1933
+
+../test/led_i2c_test/LED_functions.c,523
+const char PWM_REG[16] = {0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8, 0x9,PWM_REG6,107
+int LED_init()LED_init9,225
+int LED_PWR(char power)LED_PWR31,944
+int LED_VOL(char volume)LED_VOL65,1647
+int LED_SRC(char source)LED_SRC183,6174
+int LED_ERROR()LED_ERROR215,6936
+int LED_i2c_write(unsigned long int led_state, char LED_PWM[16])LED_i2c_write226,7067
+int LED_ERROR_i2c()LED_ERROR_i2c248,7791
+int LED_ENABLE()LED_ENABLE255,7846
+int LED_DISABLE()LED_DISABLE264,8054
+int LED_OUT_OF_RANGE()LED_OUT_OF_RANGE273,8254
+
+../test/led_i2c_test/i2c.h,25
+#define I2C_HI2C_H2,15
+
+../test/led_i2c_test/main.c,53
+#define LED_ADDR LED_ADDR5,67
+int main()main7,90
+
+../test/led_i2c_test/i2c.c,180
+int i2c_write(char addr, char reg, char data)i2c_write31,624
+int i2c_read(char addr, char reg)i2c_read46,968
+int i2c_write16(char addr, char reg, int data)i2c_write1663,1286
+
 ../test/debug_test/makefile,0
 
 ../test/debug_test/main.c,44
@@ -22,11 +98,15 @@ int debug_out(char DEBUG_OPT, char *id, char *msg)debug_out48,722
 int debug_to_screen(char *id, char *msg)debug_to_screen67,991
 int debug_to_file(char *id, char *msg)debug_to_file74,1087
 
-../include/UI_functions.h,203
+../test/PCA_i2c_test/main.c,21
+int main()main6,68
+
+../include/UI_functions.h,255
 #define UI_FUNCTIONS_HUI_FUNCTIONS_H2,24
 #define PCA9554A_ADDR PCA9554A_ADDR15,287
-#define BUTTON_INPUT_REG BUTTON_INPUT_REG16,326
-#define BUTTON_INPUT_REG_DEFAULT BUTTON_INPUT_REG_DEFAULT17,365
+#define BUTTON_CONFIG_REG BUTTON_CONFIG_REG17,328
+#define BUTTON_CONFIG_REG_DEFAULT BUTTON_CONFIG_REG_DEFAULT18,368
+#define BUTTON_READ_REG BUTTON_READ_REG20,410
 
 ../include/LED_functions.h,1852
 #define LED_FUNCTIONS_HLED_FUNCTIONS_H2,25
@@ -131,13 +211,13 @@ int debug_to_file(char *id, char *msg)debug_to_file74,1087
 #define REG_INDEX REG_INDEX31,696
 #define DATA_INDEX DATA_INDEX32,718
 
-UI_functions.c,220
-int Buttons_init()Buttons_init8,107
-int UI_PWR(char power)UI_PWR18,300
-int UI_VOL(char volume)UI_VOL26,391
-int UI_SRC(char source)UI_SRC34,485
-int UI_ERROR()UI_ERROR42,584
-int readPCA9554(){readPCA955449,647
+UI_functions.c,221
+int Buttons_init()Buttons_init10,148
+int UI_PWR(char power)UI_PWR20,343
+int UI_VOL(char volume)UI_VOL28,434
+int UI_SRC(char source)UI_SRC36,528
+int UI_ERROR()UI_ERROR44,627
+int readPCA9554(){readPCA955451,690
 
 LED_functions.c,523
 const char PWM_REG[16] = {0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8, 0x9,PWM_REG6,107
@@ -178,7 +258,7 @@ DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))DEPS14,276
 _OBJ = i2c.o LED_functions.o TAS_functions.o UI_functions.o main.o debug.o script.o_OBJ16,317
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))OBJ17,401
 
-main.c,776
+main.c,872
 struct States {States10,209
     char power;power11,226
     char source;source12,243
@@ -189,20 +269,22 @@ struct States {States10,209
 } state;state17,355
 volatile char status = IDLE;status19,367
 volatile int LED_TIMER = 0;LED_TIMER20,397
-char script_filename[50];script_filename21,426
-FILE *fp_script = NULL;fp_script22,453
-FILE *fp_log = NULL;fp_log23,478
-int initialize()initialize25,502
-int wiringPi_init()wiringPi_init52,1092
-PI_THREAD(LED_TIMER_THREAD)PI_THREAD60,1220
-void myInterrupt0(void) {myInterrupt078,1578
-int option_handler(int argc, char *argv[])option_handler82,1648
-int main(int argc, char *argv[])main116,2184
+volatile char DEBOUNCE_ON = 0;DEBOUNCE_ON21,426
+char script_filename[50];script_filename22,458
+FILE *fp_script = NULL;fp_script23,485
+FILE *fp_log = NULL;fp_log24,510
+int initialize()initialize26,534
+int wiringPi_init()wiringPi_init53,1124
+PI_THREAD(LED_TIMER_THREAD)PI_THREAD61,1252
+PI_THREAD(BUTTON_DEBOUNCE)PI_THREAD79,1610
+void myInterrupt0(void) {myInterrupt094,1855
+int option_handler(int argc, char *argv[])option_handler100,1999
+int main(int argc, char *argv[])main134,2535
 
 i2c.c,180
 int i2c_write(char addr, char reg, char data)i2c_write31,624
-int i2c_read(char addr, char reg)i2c_read46,955
-int i2c_write16(char addr, char reg, int data)i2c_write1663,1273
+int i2c_read(char addr, char reg)i2c_read46,968
+int i2c_write16(char addr, char reg, int data)i2c_write1663,1293
 
 debug.c,431
 FILE *fp = NULL;fp6,77

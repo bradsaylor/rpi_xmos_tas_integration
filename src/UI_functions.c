@@ -2,12 +2,14 @@
 #include "LED_functions.h"
 #include "TAS_functions.h"
 #include "i2c.h"
+#include "debug.h"
+#include <string.h>
 
 
 
 int Buttons_init()
 {
-    i2c_write(PCA9554A_ADDR, BUTTON_INPUT_REG, BUTTON_INPUT_REG_DEFAULT);
+    i2c_write(PCA9554A_ADDR, BUTTON_CONFIG_REG, BUTTON_CONFIG_REG_DEFAULT);
     
     return 0;
 }
@@ -47,9 +49,10 @@ int UI_ERROR()
 }
 
 int readPCA9554(){
-    int result = i2c_read(PCA9554A_ADDR, BUTTON_INPUT_REG);
+
+    int result = i2c_read(PCA9554A_ADDR, BUTTON_READ_REG);
     
-    return result;
+     return result;
 }
 
 

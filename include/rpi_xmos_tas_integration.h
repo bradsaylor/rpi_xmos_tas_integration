@@ -10,10 +10,10 @@ void myInterrupt0(void);
 
 
 #define IDLE     0xFF
-#define PWR      0x01
-#define SRC      0x02
-#define VOL_UP   0x04
-#define VOL_DOWN 0x08
+#define PWR      0x0E
+#define SRC      0x0D
+#define VOL_UP   0x0B
+#define VOL_DOWN 0x07
 
 #define OPT_SRC 0
 #define AUX_SRC 1

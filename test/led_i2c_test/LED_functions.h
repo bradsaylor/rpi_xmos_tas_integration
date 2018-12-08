@@ -35,8 +35,8 @@ int LED_OUT_OF_RANGE();
 #define MODE1_REG_DEFAULT 0x11
 #define MODE2_REG_DEFAULT 0x00
 
-#define LED_OSC_ENABLE 0xEF
-#define LED_OSC_DISABLE 0x10
+#define LED_OSC_ENABLE 0x10
+#define LED_OSC_DISABLE 0xEF
 
 extern const char PWM_REG[16]; 
 #define PWM_REG_DEFAULT 0x00
@@ -64,7 +64,7 @@ extern const char PWM_REG[16];
 #define LED_5G_ON 0x0C000000
 #define LED_5B_ON 0x30000000
 
-#define DEFAULT_LED_PWM 150
+#define DEFAULT_LED_PWM 255
 
 #define _1R 0
 #define _1G 1

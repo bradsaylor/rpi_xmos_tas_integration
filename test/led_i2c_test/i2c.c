@@ -51,7 +51,7 @@ int i2c_read(char addr, char reg)
     
     if(DEBUG_OPT)
     {
-	sprintf(debug_msg, "id:%x addr:%x result:%x", addr, reg, (char)result);
+	sprintf(debug_msg, "id:%x addr:%x value:%x", addr, reg, result);
 	debug_out(DEBUG_OPT, "i2c_read", debug_msg);
     }
 
