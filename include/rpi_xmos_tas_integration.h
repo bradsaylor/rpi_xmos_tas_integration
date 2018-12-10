@@ -35,4 +35,6 @@ void myInterrupt0(void);
 #define MAX_VOL 15
 #define MIN_VOL 0
 
+#define DEBOUNCE_TIME_MS 150
+
 #endif //RPI_XMOS_TAS_INTEGRATION_H

@@ -64,7 +64,7 @@ extern const char PWM_REG[16];
 #define LED_5G_ON 0x0C000000
 #define LED_5B_ON 0x30000000
 
-#define DEFAULT_LED_PWM 150
+#define DEFAULT_LED_PWM 80
 
 #define _1R 0
 #define _1G 1

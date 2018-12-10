@@ -143,26 +143,26 @@ int main()main6,68
 #define LED_5G_ON LED_5G_ON64,1626
 #define LED_5B_ON LED_5B_ON65,1656
 #define DEFAULT_LED_PWM DEFAULT_LED_PWM67,1688
-#define _1R _1R69,1719
-#define _1G _1G70,1734
-#define _1B _1B71,1749
-#define _2R _2R72,1764
-#define _2G _2G73,1779
-#define _2B _2B74,1794
-#define _3R _3R75,1809
-#define _3G _3G76,1824
-#define _3B _3B77,1839
-#define _4R _4R78,1854
-#define _4G _4G79,1869
-#define _4B _4B80,1885
-#define _5R _5R81,1901
-#define _5G _5G82,1917
-#define _5B _5B83,1933
+#define _1R _1R69,1718
+#define _1G _1G70,1733
+#define _1B _1B71,1748
+#define _2R _2R72,1763
+#define _2G _2G73,1778
+#define _2B _2B74,1793
+#define _3R _3R75,1808
+#define _3G _3G76,1823
+#define _3B _3B77,1838
+#define _4R _4R78,1853
+#define _4G _4G79,1868
+#define _4B _4B80,1884
+#define _5R _5R81,1900
+#define _5G _5G82,1916
+#define _5B _5B83,1932
 
 ../include/i2c.h,25
 #define I2C_HI2C_H2,15
 
-../include/rpi_xmos_tas_integration.h,673
+../include/rpi_xmos_tas_integration.h,723
 #define RPI_XMOS_TAS_INTEGRATION_HRPI_XMOS_TAS_INTEGRATION_H2,36
 #define IDLE IDLE12,249
 #define PWR PWR13,272
@@ -182,6 +182,7 @@ int main()main6,68
 #define LED_TIMER_MS LED_TIMER_MS33,587
 #define MAX_VOL MAX_VOL35,616
 #define MIN_VOL MIN_VOL36,636
+#define DEBOUNCE_TIME_MS DEBOUNCE_TIME_MS38,657
 
 ../include/wiringPiI2C.h,0
 
@@ -232,15 +233,15 @@ int LED_ENABLE()LED_ENABLE255,7846
 int LED_DISABLE()LED_DISABLE264,8054
 int LED_OUT_OF_RANGE()LED_OUT_OF_RANGE273,8254
 
-TAS_functions.c,371
+TAS_functions.c,372
 const int ANA_DATA[18][3] = {ANA_DATA6,107
 const int OPT_DATA[27][3] = {OPT_DATA27,597
-const int volume_table[16] = {volume_table57,1315
-int TAS_init()TAS_init76,1689
-int TAS_PWR(char power)TAS_PWR84,1860
-int TAS_VOL(char volume)TAS_VOL110,2537
-int TAS_SRC(char source)TAS_SRC124,2792
-int TAS_i2c_write(char ADDR, char REG, int DATA)TAS_i2c_write163,3775
+const int volume_table[16] = {volume_table77,1774
+int TAS_init()TAS_init97,2150
+int TAS_PWR(char power)TAS_PWR105,2321
+int TAS_VOL(char volume)TAS_VOL131,2998
+int TAS_SRC(char source)TAS_SRC145,3253
+int TAS_i2c_write(char ADDR, char REG, int DATA)TAS_i2c_write184,4228
 
 script.c,92
 char SCRIPT_OPT = 0;SCRIPT_OPT3,21
@@ -277,14 +278,15 @@ int initialize()initialize26,534
 int wiringPi_init()wiringPi_init53,1124
 PI_THREAD(LED_TIMER_THREAD)PI_THREAD61,1252
 PI_THREAD(BUTTON_DEBOUNCE)PI_THREAD79,1610
-void myInterrupt0(void) {myInterrupt094,1855
-int option_handler(int argc, char *argv[])option_handler100,1999
-int main(int argc, char *argv[])main134,2535
+void myInterrupt0(void) {myInterrupt094,1869
+int option_handler(int argc, char *argv[])option_handler100,2013
+int main(int argc, char *argv[])main134,2549
 
-i2c.c,180
-int i2c_write(char addr, char reg, char data)i2c_write31,624
-int i2c_read(char addr, char reg)i2c_read46,968
-int i2c_write16(char addr, char reg, int data)i2c_write1663,1293
+i2c.c,231
+int i2c_write(char addr, char reg, char data)i2c_write33,663
+int i2c_read(char addr, char reg)i2c_read50,1034
+int i2c_write16(char addr, char reg, int data)i2c_write1668,1384
+int i2c_close_file(int fd)i2c_close_file85,1754
 
 debug.c,431
 FILE *fp = NULL;fp6,77

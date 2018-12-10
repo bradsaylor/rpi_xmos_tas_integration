@@ -54,6 +54,7 @@ const int OPT_DATA[27][3] = {
     {0x18, 0x3A, 0x01}    
 };
 
+/*****************************************
 const int volume_table[16] = {
     0x03FF,  //MUTE
     0x0200,  //-40dB
@@ -71,6 +72,26 @@ const int volume_table[16] = {
     0x00E8,  //-5
     0x00D4,  //-2
     0x00C0};  //0
+****************************************/
+
+const int volume_table[16] = {
+    0xFF03,  //MUTE
+    0x0002,  //-40dB
+    0xD801,  //-35
+    0xB001,  //-30
+    0x9C01,  //-27.5
+    0x8801,  //-25
+    0x7401,  //-22.5
+    0x6001,  //-20
+    0x4C01,  //-17.5
+    0x3801,  //-15
+    0x2401,  //-12.5
+    0x1001,  //-10
+    0xFC00,  //-7.5         
+    0xE800,  //-5
+    0xD400,  //-2
+    0xC000};  //0
+
 
 
 int TAS_init()
@@ -135,7 +156,7 @@ int TAS_SRC(char source)
         case OPT_SRC:
             for(int count = 0; count < NUM_OPT_WRITES; count++)
             {
-                TAS_i2c_write(OPT_DATA[count][ADDR_INDEX], 
+                i2c_write(OPT_DATA[count][ADDR_INDEX], 
                               OPT_DATA[count][REG_INDEX], 
                               OPT_DATA[count][DATA_INDEX]);
             }
@@ -144,7 +165,7 @@ int TAS_SRC(char source)
         case AUX_SRC:
             for(int count = 0; count < NUM_AUX_WRITES; count++)
             {
-                TAS_i2c_write(ANA_DATA[count][ADDR_INDEX], 
+                i2c_write(ANA_DATA[count][ADDR_INDEX], 
                               ANA_DATA[count][REG_INDEX], 
                               ANA_DATA[count][DATA_INDEX]);
             }

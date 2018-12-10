@@ -11,7 +11,7 @@ int TAS_i2c_write(char ADDR, char REG, int DATA);
 int TAS_init();
 
 
-#define TAS_ADDR 0x56
+#define TAS_ADDR 0x2B
 
 /****************************************/
 #define TAS_VOL_REG 0x07

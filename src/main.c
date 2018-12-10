@@ -83,7 +83,7 @@ PI_THREAD(BUTTON_DEBOUNCE)
         if(DEBOUNCE_ON)
         {
             printf("delaying\n");
-            delay(15);
+            delay(DEBOUNCE_TIME_MS);
             DEBOUNCE_ON = 0;
             printf("debounce cleared\n");
         }
@@ -193,22 +193,30 @@ int main(int argc, char *argv[])
                     break;
                     
                 case VOL_UP:
-                    if(state.volume < MAX_VOL)
+                    while((char)readPCA9554() == VOL_UP)
                     {
-                        if(!UI_VOL(state.volume + 1)) state.volume++;
-                    } else
-                    {
-                        LED_OUT_OF_RANGE();
+                        if(state.volume < MAX_VOL)
+                        {
+                            if(!UI_VOL(state.volume + 1)) state.volume++;
+                        } else
+                        {
+                            LED_OUT_OF_RANGE();
+                        }
+                        delay(150);
                     }
                     break;
                     
                 case VOL_DOWN:
-                    if(state.volume > MIN_VOL)
+                    while((char)readPCA9554() == VOL_DOWN)
                     {
-                        if(!UI_VOL(state.volume - 1)) state.volume--;
-                    } else
-                    {
-                        LED_OUT_OF_RANGE();
+                        if(state.volume > MIN_VOL)
+                        {
+                            if(!UI_VOL(state.volume - 1)) state.volume--;
+                        } else
+                        {
+                            LED_OUT_OF_RANGE();
+                        }
+                        delay(150);
                     }
                     break;
                     
