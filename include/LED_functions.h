@@ -14,7 +14,7 @@ int LED_ERROR_i2c();
 int LED_ENABLE();
 int LED_DISABLE();
 int LED_OUT_OF_RANGE();
-
+int LED_AVS_ACTIVE();
 
 /**********************************************************************************************/
 #define TLC59116_ADDR 0x60

@@ -80,6 +80,18 @@ PI_THREAD(BUTTON_DEBOUNCE)
 {
     while(1)
     {
+        if(digitalRead(2))
+        {
+            printf("*************AVS*********\n");
+            while(digitalRead(2))
+            {
+
+              LED_AVS_ACTIVE();
+            }
+
+        }
+
+
         if(DEBOUNCE_ON)
         {
             printf("delaying\n");

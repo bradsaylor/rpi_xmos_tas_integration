@@ -2,6 +2,7 @@
 #include "rpi_xmos_tas_integration.h"
 #include "i2c.h"
 #include "debug.h"
+#include "wiringPi.h"
 
 const char PWM_REG[16] = {0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8, 0x9,
 			  0xA, 0xB, 0xC, 0xD, 0xE, 0xF, 0x10, 0x11};
@@ -273,5 +274,32 @@ int LED_DISABLE()
 int LED_OUT_OF_RANGE()
 {
     if(DEBUG_OPT) debug_out(DEBUG_OPT, "LED_RANGE", "out of range");
+    return 0;
+}
+
+int LED_AVS_ACTIVE()
+{
+    unsigned long int led_state = LED_RESET_STATE;
+    unsigned char LED_PWM[16] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+
+    LED_PWM[_1G] = DEFAULT_LED_PWM;
+    LED_PWM[_2G] = DEFAULT_LED_PWM; 
+    LED_PWM[_3G] = DEFAULT_LED_PWM;
+    LED_PWM[_4G] = DEFAULT_LED_PWM;
+    LED_PWM[_5G] = DEFAULT_LED_PWM;
+
+    led_state = led_state | LED_1G_ON | LED_2G_ON | LED_3G_ON
+                          | LED_4G_ON | LED_5G_ON;
+
+    LED_i2c_write(led_state, LED_PWM);
+
+    delay(500);
+
+    led_state = LED_RESET_STATE;
+
+    LED_i2c_write(led_state, LED_PWM);
+
+    delay(500);
+
     return 0;
 }
