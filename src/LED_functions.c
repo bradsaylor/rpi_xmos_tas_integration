@@ -271,11 +271,6 @@ int LED_DISABLE()
     return 0;
 }
 
-int LED_OUT_OF_RANGE()
-{
-    if(DEBUG_OPT) debug_out(DEBUG_OPT, "LED_RANGE", "out of range");
-    return 0;
-}
 
 int LED_AVS_ACTIVE()
 {
@@ -300,6 +295,38 @@ int LED_AVS_ACTIVE()
     LED_i2c_write(led_state, LED_PWM);
 
     delay(500);
+
+    return 0;
+}
+
+int LED_OUT_OF_RANGE()
+{
+    unsigned long int led_state = LED_RESET_STATE;
+    unsigned char LED_PWM[16] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+
+    if(DEBUG_OPT) debug_out(DEBUG_OPT, "LED_RANGE", "out of range");
+    
+    LED_PWM[_1R] = DEFAULT_LED_PWM;
+    LED_PWM[_2R] = DEFAULT_LED_PWM; 
+    LED_PWM[_3R] = DEFAULT_LED_PWM;
+    LED_PWM[_4R] = DEFAULT_LED_PWM;
+    LED_PWM[_5R] = DEFAULT_LED_PWM;
+
+    led_state = led_state | LED_1R_ON | LED_2R_ON | LED_3R_ON
+                          | LED_4R_ON | LED_5R_ON;
+
+    for(int count = 0; count < 4; count++)
+    {
+	LED_i2c_write(led_state, LED_PWM);
+
+	delay(80);
+
+	led_state = LED_RESET_STATE;
+
+	LED_i2c_write(led_state, LED_PWM);
+
+	delay(80);
+    }
 
     return 0;
 }

@@ -71,22 +71,6 @@ PI_THREAD(BUTTON_DEBOUNCE)
     
 }
 
-PI_THREAD(AVS_DETECT)
-{
-    while(1)
-    {
-        if(digitalRead(2))
-        {
-	    if(DEBUG_OPT) debug_out(DEBUG_OPT,
-				    "AVS_detect_thread",
-				    "*****AVS ACITVE*****");
-            while(digitalRead(2))
-            {
-              LED_AVS_ACTIVE();
-            }
-        }
-    }
-}
 
 /*****************************************************************
 MAIN()
@@ -97,26 +81,29 @@ int main(int argc, char *argv[])
 
     //Run option_handler() to set desired scripting and debug
     //options from command line input
-    if(option_handler(argc, argv)) return 1;
+    if(option_handler(argc, argv))
+    {
+	printf("OPTION ERROR\n");
+	exit_fn();
+	return 1;
+    }
 
     if(SCRIPT_OPT && DEBUG_OPT)
     {
         sprintf(debug_msg, "running script: %s", script_filename);
-        if(DEBUG_OPT) debug_out(DEBUG_OPT, "main", debug_msg);
+        debug_out(DEBUG_OPT, "main", debug_msg);
     }
     //Initialize hardware, wiringPi, and initial system state
     initialize();
-
-    uint8_t startAvsThread = piThreadCreate(AVS_DETECT);
-    
-    state.status = IDLE;
 
 
     /*********************************
     BEGIN UI LOOP
     **********************************/
     while(1) {
-	
+
+	if(digitalRead(2))  avs_detect();
+
         //load next command if running from script
         if(SCRIPT_OPT)
         {
@@ -125,6 +112,7 @@ int main(int argc, char *argv[])
 		if(DEBUG_OPT) debug_out(DEBUG_OPT,
 					"main_loop",
 					"end of script");
+		exit_fn();
 		return 0;
 	    }
 	    
@@ -132,9 +120,8 @@ int main(int argc, char *argv[])
 	    
 	    if(state.status == -1)
 	    {
-		debug_out(DEBUG_OPT,
-			  "main",
-			  "invalid script command..exiting");
+		printf("Invalid Scripting command\n");
+		exit_fn();
 		return 1;
 	    }
         }
@@ -142,6 +129,8 @@ int main(int argc, char *argv[])
         //if status has changed process the input        
         if((state.status != IDLE) && (!state.debounce_active)) 
         {
+            startDebounceThread = piThreadCreate(BUTTON_DEBOUNCE);
+	    
 	    //if running from script delay for obseravtion
 	    if(SCRIPT_OPT) delay(SCRIPT_DELAY_MS);
 
@@ -151,9 +140,7 @@ int main(int argc, char *argv[])
 		debug_out(DEBUG_OPT, "main_switch", debug_msg);
 	    }
 		
-            startDebounceThread = piThreadCreate(BUTTON_DEBOUNCE);
-            
-            LED_ENABLE();
+
             LED_TIMER = LED_TIMER_MS;           
             if(!state.led_display_active)
 	    {
@@ -197,7 +184,7 @@ int main(int argc, char *argv[])
                     break;
 		/////////////////////////////////////////////////////
                 case SRC:
-                    if(state.avs_active != AVS_ON)
+                    if(state.avs_active)
                     {
                         if(!UI_SRC(state.source ^ 1)) state.source ^= 1;
                     }
@@ -238,19 +225,21 @@ int initialize()
     state.volume = MUTE;
     state.avs_active = AVS_OFF;
     state.led_display_active = LED_DISPLAY_OFF;
-    state.debounce_active = 0;
+    state.debounce_active = DEBOUNCE_OFF;
     state.error_detect = NO_ERROR;
     
-    UI_PWR(PWR_ON);    
     UI_VOL(MUTE);
     UI_SRC(AUX_SRC);
 
     LED_ENABLE();    
-
+    UI_PWR(PWR_ON);
+    
     if(DEBUG_OPT) debug_out(DEBUG_OPT,
 			    "initialize",
 			    "end of init\n\n\n");
     
+    state.status = IDLE;
+
     return 0;
 }
 
@@ -303,7 +292,23 @@ int option_handler(int argc, char *argv[])
     return 0;
 }
 
-int exit()
+int avs_detect()
+{
+    if(DEBUG_OPT) debug_out(DEBUG_OPT,
+	         	    "AVS_detect_thread",
+			    "*****AVS ACITVE*****");
+    while(digitalRead(2))
+    {
+        LED_AVS_ACTIVE();
+    }
+
+    if(DEBUG_OPT) debug_out(DEBUG_OPT,
+	         	    "AVS_detect_thread",
+			    "*****AVS FINISHED*****");
+    return 0;
+}
+
+int exit_fn()
 {
     if((DEBUG_OPT == 2) || (DEBUG_OPT == 3)) debug_file_close;
     if(SCRIPT_OPT) fclose(fp_script);
