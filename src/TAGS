@@ -280,11 +280,11 @@ FILE *fp_script = NULL;fp_script23,485
 FILE *fp_log = NULL;fp_log24,510
 int initialize()initialize26,534
 int wiringPi_init()wiringPi_init53,1124
-PI_THREAD(LED_TIMER_THREAD)PI_THREAD61,1252
-PI_THREAD(BUTTON_DEBOUNCE)PI_THREAD79,1610
-void myInterrupt0(void) {myInterrupt0106,2077
-int option_handler(int argc, char *argv[])option_handler112,2221
-int main(int argc, char *argv[])main146,2757
+PI_THREAD(LED_TIMER_THREAD)PI_THREAD63,1305
+PI_THREAD(BUTTON_DEBOUNCE)PI_THREAD81,1663
+void myInterrupt0(void) {myInterrupt0108,2130
+int option_handler(int argc, char *argv[])option_handler114,2274
+int main(int argc, char *argv[])main148,2810
 
 i2c.c,231
 int i2c_write(char addr, char reg, char data)i2c_write33,663

@@ -54,6 +54,8 @@ int wiringPi_init()
 {
     wiringPiSetup();
     wiringPiISR (4, INT_EDGE_FALLING, &myInterrupt0) ;
+    pinMode(5, OUTPUT);
+    digitalWrite(5, HIGH);
     
     return 0;
 }
