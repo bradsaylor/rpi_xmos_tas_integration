@@ -11,7 +11,7 @@ int initialize();
 int wiringPi_init();
 void myInterrupt0(void);
 int option_handler(int argc, char *argv[]);
-int avs_active();
+int avs_detect();
 int exit_fn();
 
 /*************************************
