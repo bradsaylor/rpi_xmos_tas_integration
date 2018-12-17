@@ -306,26 +306,24 @@ int LED_OUT_OF_RANGE()
 
     if(DEBUG_OPT) debug_out(DEBUG_OPT, "LED_RANGE", "out of range");
     
-    LED_PWM[_1R] = DEFAULT_LED_PWM;
-    LED_PWM[_2R] = DEFAULT_LED_PWM; 
-    LED_PWM[_3R] = DEFAULT_LED_PWM;
-    LED_PWM[_4R] = DEFAULT_LED_PWM;
-    LED_PWM[_5R] = DEFAULT_LED_PWM;
+    LED_PWM[_1B] = DEFAULT_LED_PWM;
+    LED_PWM[_2B] = DEFAULT_LED_PWM; 
+    LED_PWM[_3B] = DEFAULT_LED_PWM;
+    LED_PWM[_4B] = DEFAULT_LED_PWM;
+    LED_PWM[_5B] = DEFAULT_LED_PWM;
 
-    led_state = led_state | LED_1R_ON | LED_2R_ON | LED_3R_ON
-                          | LED_4R_ON | LED_5R_ON;
+    led_state = led_state | LED_1B_ON | LED_2B_ON | LED_3B_ON
+                          | LED_4B_ON | LED_5B_ON;
 
-    for(int count = 0; count < 4; count++)
+    for(int count = 0; count < 3; count++)
     {
 	LED_i2c_write(led_state, LED_PWM);
 
-	delay(80);
+	delay(100);
 
-	led_state = LED_RESET_STATE;
+	LED_i2c_write(LED_RESET_STATE, LED_PWM);
 
-	LED_i2c_write(led_state, LED_PWM);
-
-	delay(80);
+	delay(100);
     }
 
     return 0;

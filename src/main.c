@@ -164,6 +164,7 @@ int main(int argc, char *argv[])
                         } else
                         {
                             LED_OUT_OF_RANGE();
+                            UI_VOL(state.volume);
                         }
                         delay(VOL_REPEAT_DELAY_MS);
                     }
@@ -294,6 +295,8 @@ int option_handler(int argc, char *argv[])
 
 int avs_detect()
 {
+    UI_VOL(DEFAULT_AVS_VOLUME);
+
     if(DEBUG_OPT) debug_out(DEBUG_OPT,
 	         	    "AVS_detect_thread",
 			    "*****AVS ACITVE*****");
@@ -305,6 +308,8 @@ int avs_detect()
     if(DEBUG_OPT) debug_out(DEBUG_OPT,
 	         	    "AVS_detect_thread",
 			    "*****AVS FINISHED*****");
+    UI_VOL(state.volume);
+
     return 0;
 }
 

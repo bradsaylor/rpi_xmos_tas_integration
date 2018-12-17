@@ -203,7 +203,7 @@ int main()main6,68
 #define PATH_TO_LOG PATH_TO_LOG20,539
 #define DEBUG_FORMAT DEBUG_FORMAT21,569
 
-../include/TAS_functions.h,587
+../include/TAS_functions.h,641
 #define TAS_FUNCTIONS_HTAS_FUNCTIONS_H2,25
 #define TAS_ADDR TAS_ADDR14,312
 #define TAS_VOL_REG TAS_VOL_REG17,381
@@ -213,11 +213,12 @@ int main()main6,68
 #define TAS_CH1_2_MUTE TAS_CH1_2_MUTE21,483
 #define TAS_CH1_2_UNMUTE TAS_CH1_2_UNMUTE22,514
 #define DEFAULT_VOLUME DEFAULT_VOLUME23,547
-#define NUM_OPT_WRITES NUM_OPT_WRITES27,618
-#define NUM_AUX_WRITES NUM_AUX_WRITES28,645
-#define ADDR_INDEX ADDR_INDEX30,674
-#define REG_INDEX REG_INDEX31,696
-#define DATA_INDEX DATA_INDEX32,718
+#define DEFAULT_AVS_VOLUME DEFAULT_AVS_VOLUME24,578
+#define NUM_OPT_WRITES NUM_OPT_WRITES28,648
+#define NUM_AUX_WRITES NUM_AUX_WRITES29,675
+#define ADDR_INDEX ADDR_INDEX31,704
+#define REG_INDEX REG_INDEX32,726
+#define DATA_INDEX DATA_INDEX33,748
 
 UI_functions.c,221
 int Buttons_init()Buttons_init10,148
@@ -287,12 +288,12 @@ FILE *fp_log = NULL;fp_log36,921
 PI_THREAD(LED_TIMER_THREAD)PI_THREAD41,1099
 PI_THREAD(BUTTON_DEBOUNCE)PI_THREAD60,1421
 int main(int argc, char *argv[])main78,1923
-int initialize()initialize216,6000
-int wiringPi_init()wiringPi_init246,6592
-void myInterrupt0(void) {myInterrupt0255,6722
-int option_handler(int argc, char *argv[])option_handler261,6875
-int avs_detect()avs_detect295,7411
-int exit_fn()exit_fn311,7744
+int initialize()initialize217,6051
+int wiringPi_init()wiringPi_init247,6643
+void myInterrupt0(void) {myInterrupt0256,6773
+int option_handler(int argc, char *argv[])option_handler262,6926
+int avs_detect()avs_detect296,7462
+int exit_fn()exit_fn316,7859
 
 i2c.c,231
 int i2c_write(char addr, char reg, char data)i2c_write33,663

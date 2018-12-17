@@ -21,6 +21,7 @@ int TAS_init();
 #define TAS_CH1_2_MUTE 0x03FF
 #define TAS_CH1_2_UNMUTE 0x00C0
 #define DEFAULT_VOLUME 0x0124
+#define DEFAULT_AVS_VOLUME 4
 
 extern const int volume_table[16];
 
