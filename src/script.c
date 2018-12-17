@@ -1,13 +1,15 @@
+#include "rpi_xmos_tas_integration.h"
+
 #include <string.h>
 
 char SCRIPT_OPT = 0;
 
 char script_translate(char *str)
 {
-    if(!strcmp(str, "VOL+")) return 0x04;
-    if(!strcmp(str, "VOL-")) return 0x08;
-    if(!strcmp(str, "SRC"))  return 0x02;
-    if(!strcmp(str, "PWR"))  return 0x01;
+    if(!strcmp(str, "VOL+")) return VOL_UP;
+    if(!strcmp(str, "VOL-")) return VOL_DOWN;
+    if(!strcmp(str, "SRC"))  return SRC;
+    if(!strcmp(str, "PWR"))  return PWR;
 
     return -1;
     

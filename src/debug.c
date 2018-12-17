@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <time.h>
 #include <string.h>
-#include "debug.h"
 
-FILE *fp = NULL;
+#include "debug.h"
+#include "rpi_xmos_tas_integration.h"
+
 char debug_msg[50]= "";
 char DEBUG_OPT = 0;
 
@@ -35,14 +36,14 @@ int debug_file_init()
     strcpy(filename, PATH_TO_LOG);
     strcat(filename, time_stamp);
     strcat(filename, DEBUG_FILE_NAME);
-    fp = fopen(filename, "w");
+    fp_log = fopen(filename, "w");
 
     return 0;
 }
 
 int debug_file_close()
 {
-    fclose(fp);
+    fclose(fp_log);
 
     return 0;
 }
