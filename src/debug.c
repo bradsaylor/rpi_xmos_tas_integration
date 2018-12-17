@@ -76,7 +76,7 @@ int debug_to_screen(char *id, char *msg)
 
 int debug_to_file(char *id, char *msg)
 {
-    fprintf(fp, DEBUG_FORMAT, id, msg);
+    fprintf(fp_log, DEBUG_FORMAT, id, msg);
 
     return 0;
 }
