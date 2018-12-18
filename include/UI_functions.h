@@ -12,6 +12,9 @@ int UI_SRC(char source);
 int UI_ERROR();
 int readPCA9554();
 
+/*************************************
+MACROS
+ *************************************/
 #define PCA9554A_ADDR            0x38
 
 #define BUTTON_CONFIG_REG         0x03

@@ -1,35 +1,11 @@
-
-/*
-NOTES ON passing const 2d array to function:
-______________________________________________
-
-In this method, we must typecast the 2D array when passing to function.
-
-#include <stdio.h> 
-void print(int *arr, int m, int n) 
-{ 
-    int i, j; 
-    for (i = 0; i < m; i++) 
-      for (j = 0; j < n; j++) 
-        printf("%d ", *((arr+i*n) + j)); 
-} 
-
-int main() 
-{ 
-    int arr[][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}; 
-    int m = 3, n = 3; 
-  
-    // We can also use "print(&arr[0][0], m, n);" 
-    print((int *)arr, m, n); 
-    return 0; 
-} 
-*/
-
 #include "wiringPiI2C.h"
 #include "debug.h"
 #include "i2c.h"
 #include <unistd.h>
 
+/*****************************************************************
+LOCAL FUNCTIONS
+*****************************************************************/
 int i2c_write(char addr, char reg, char data)
 {
     int fd = wiringPiI2CSetup(addr);
@@ -38,8 +14,8 @@ int i2c_write(char addr, char reg, char data)
 
     if(DEBUG_OPT)
     {
-	sprintf(debug_msg, "id:%x addr:%x data:%x ->%d", addr, reg, data, result);
-	debug_out(DEBUG_OPT, "i2c_write", debug_msg);
+	    sprintf(debug_msg, "id:%x addr:%x data:%x ->%d", addr, reg, data, result);
+	    debug_out(DEBUG_OPT, "i2c_write", debug_msg);
     }
 
     i2c_close_file(fd);
@@ -55,14 +31,13 @@ int i2c_read(char addr, char reg)
     
     if(DEBUG_OPT)
     {
-	sprintf(debug_msg, "id:%x addr:%x result:%x", addr, reg, (char)result);
-	debug_out(DEBUG_OPT, "i2c_read", debug_msg);
+	    sprintf(debug_msg, "id:%x addr:%x result:%x", addr, reg, (char)result);
+	    debug_out(DEBUG_OPT, "i2c_read", debug_msg);
     }
 
     i2c_close_file(fd);
 
-    return result;
-    
+    return result;    
 }
 
 int i2c_write16(char addr, char reg, int data)
@@ -73,11 +48,12 @@ int i2c_write16(char addr, char reg, int data)
 
     if(DEBUG_OPT)
     {
-	sprintf(debug_msg, "id:%x addr:%x data:%x ->%d", addr, reg, data, result);
-	debug_out(DEBUG_OPT, "i2c_write", debug_msg);
+	    sprintf(debug_msg, "id:%x addr:%x data:%x ->%d", addr, reg, data, result);
+	    debug_out(DEBUG_OPT, "i2c_write", debug_msg);
     }
     
     i2c_close_file(fd); 
+    
     return result;
 }
 

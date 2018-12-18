@@ -11,9 +11,19 @@ int TAS_i2c_write(char ADDR, char REG, int DATA);
 int TAS_init();
 
 
+/*************************************
+GLOBAL VARIABLES
+ *************************************/
+extern const int volume_table[16];
+extern const int OPT_DATA[27][3];
+extern const int ANA_DATA[18][3]; 
+ 
+ 
+/*************************************
+MACROS
+ *************************************/
 #define TAS_ADDR 0x2B
 
-/****************************************/
 #define TAS_VOL_REG 0x07
 #define TAS_CH1_VOL_REG 0x08
 #define TAS_CH2_VOL_REG 0x09
@@ -23,8 +33,6 @@ int TAS_init();
 #define DEFAULT_VOLUME 0x0124
 #define DEFAULT_AVS_VOLUME 4
 
-extern const int volume_table[16];
-
 #define NUM_OPT_WRITES 26
 #define NUM_AUX_WRITES 18
 
@@ -32,10 +40,7 @@ extern const int volume_table[16];
 #define REG_INDEX  1
 #define DATA_INDEX 2
     
+
     
-extern const int OPT_DATA[27][3];
-
-extern const int ANA_DATA[18][3];
-
 #endif //TAS_FUNCTIONS_H
 

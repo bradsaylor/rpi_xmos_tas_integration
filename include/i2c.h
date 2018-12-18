@@ -3,7 +3,7 @@
 
 
 /******************************************
-function declarations
+FUNCTION DECLARATIONS
 ******************************************/
 int i2c_write(char addr, char reg, char data);
 int i2c_read(char addr, char reg);

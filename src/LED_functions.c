@@ -4,9 +4,16 @@
 #include "debug.h"
 #include "wiringPi.h"
 
+/*****************************************************************
+LOCAL VARIABLES
+*****************************************************************/
 const char PWM_REG[16] = {0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8,  0x9,
 			  0xA, 0xB, 0xC, 0xD, 0xE, 0xF, 0x10, 0x11};
 
+
+/*****************************************************************
+INIT FUNCTION
+*****************************************************************/              
 int LED_init()
 {
     if(DEBUG_OPT) debug_out(DEBUG_OPT, "LED_init", "initializing");
@@ -27,8 +34,30 @@ int LED_init()
     return 0;
 }
 
-/*******************************************************/
+/*****************************************************************
+LED ENABLE FUNCTIONS
+*****************************************************************/
+int LED_ENABLE()
+{
+    if(DEBUG_OPT) debug_out(DEBUG_OPT, "LED_ENABLE", "enabling");
+    
+    i2c_write(TLC59116_ADDR, MODE1_REG, (MODE1_REG_DEFAULT & LED_OSC_ENABLE));
+            
+    return 0;
+}
 
+int LED_DISABLE()
+{
+    if(DEBUG_OPT) debug_out(DEBUG_OPT, "LED_DISABLE", "disabling");
+
+    i2c_write(TLC59116_ADDR, MODE1_REG, (MODE1_REG_DEFAULT | LED_OSC_DISABLE));
+    
+    return 0;
+}
+
+/*****************************************************************
+UI LED FUNCTIONS
+*****************************************************************/
 int LED_PWR(char power)
 {
     unsigned long int led_state = LED_RESET_STATE;
@@ -36,8 +65,8 @@ int LED_PWR(char power)
 
     if(DEBUG_OPT)
     {
-	sprintf(debug_msg, "LED to power %d", power);
-	debug_out(DEBUG_OPT, "LED_PWR", debug_msg);
+	    sprintf(debug_msg, "LED to power %d", power);
+	    debug_out(DEBUG_OPT, "LED_PWR", debug_msg);
     }
     
     switch(power)
@@ -71,7 +100,7 @@ int LED_VOL(char volume)
     if(DEBUG_OPT)
     {
         sprintf(debug_msg, "LED to volume:%d", volume);
-	debug_out(DEBUG_OPT, "LED_VOL", debug_msg);
+	    debug_out(DEBUG_OPT, "LED_VOL", debug_msg);
     }
 
     switch(volume)
@@ -188,8 +217,8 @@ int LED_SRC(char source)
 
     if(DEBUG_OPT)
     {
-	sprintf(debug_msg, "LED to SRC:%d", source);
-	debug_out(DEBUG_OPT, "LED_SRC", debug_msg);
+	    sprintf(debug_msg, "LED to SRC:%d", source);
+	    debug_out(DEBUG_OPT, "LED_SRC", debug_msg);
     }
     
     switch(source)
@@ -220,58 +249,9 @@ int LED_ERROR()
     return 0;
 }
 
-/*****************************************************/
-
-
-
-int LED_i2c_write(unsigned long int led_state, char LED_PWM[16])
-{
-    unsigned char LED_OUT_0 = (unsigned char) led_state;
-    unsigned char LED_OUT_1 = (unsigned char) (led_state >> 8);
-    unsigned char LED_OUT_2 = (unsigned char) (led_state >> 16);
-    unsigned char LED_OUT_3 = (unsigned char) (led_state >> 24);
-    
-    for(int count = 0; count < 16; count++)
-    {
-        i2c_write(TLC59116_ADDR, PWM_REG[count], LED_PWM[count]);
-    }
-    
-    i2c_write(TLC59116_ADDR, LED_OUT_0_REG, LED_OUT_0);
-    i2c_write(TLC59116_ADDR, LED_OUT_1_REG, LED_OUT_1);
-    i2c_write(TLC59116_ADDR, LED_OUT_2_REG, LED_OUT_2);
-    i2c_write(TLC59116_ADDR, LED_OUT_3_REG, LED_OUT_3);    
-    
-    return 0;
-}
-
-
-
-int LED_ERROR_i2c()
-{
-   
-    
-    return 0;
-}
-
-int LED_ENABLE()
-{
-    if(DEBUG_OPT) debug_out(DEBUG_OPT, "LED_ENABLE", "enabling");
-    
-    i2c_write(TLC59116_ADDR, MODE1_REG, (MODE1_REG_DEFAULT & LED_OSC_ENABLE));
-            
-    return 0;
-}
-
-int LED_DISABLE()
-{
-    if(DEBUG_OPT) debug_out(DEBUG_OPT, "LED_DISABLE", "disabling");
-
-    i2c_write(TLC59116_ADDR, MODE1_REG, (MODE1_REG_DEFAULT | LED_OSC_DISABLE));
-    
-    return 0;
-}
-
-
+/*****************************************************************
+SPECIAL STATE LED FUNCTIONS
+*****************************************************************/
 int LED_AVS_ACTIVE()
 {
     unsigned long int led_state = LED_RESET_STATE;
@@ -317,14 +297,51 @@ int LED_OUT_OF_RANGE()
 
     for(int count = 0; count < 3; count++)
     {
-	LED_i2c_write(led_state, LED_PWM);
+	    LED_i2c_write(led_state, LED_PWM);
 
-	delay(100);
+	    delay(100);
 
-	LED_i2c_write(LED_RESET_STATE, LED_PWM);
+	    LED_i2c_write(LED_RESET_STATE, LED_PWM);
 
-	delay(100);
+	    delay(100);
     }
 
     return 0;
 }
+
+
+/*****************************************************************
+LED I2C FUNCTIONS
+*****************************************************************/
+int LED_i2c_write(unsigned long int led_state, char LED_PWM[16])
+{
+    unsigned char LED_OUT_0 = (unsigned char) led_state;
+    unsigned char LED_OUT_1 = (unsigned char) (led_state >> 8);
+    unsigned char LED_OUT_2 = (unsigned char) (led_state >> 16);
+    unsigned char LED_OUT_3 = (unsigned char) (led_state >> 24);
+    
+    for(int count = 0; count < 16; count++)
+    {
+        i2c_write(TLC59116_ADDR, PWM_REG[count], LED_PWM[count]);
+    }
+    
+    i2c_write(TLC59116_ADDR, LED_OUT_0_REG, LED_OUT_0);
+    i2c_write(TLC59116_ADDR, LED_OUT_1_REG, LED_OUT_1);
+    i2c_write(TLC59116_ADDR, LED_OUT_2_REG, LED_OUT_2);
+    i2c_write(TLC59116_ADDR, LED_OUT_3_REG, LED_OUT_3);    
+    
+    return 0;
+}
+
+
+
+int LED_ERROR_i2c()
+{
+   
+    
+    return 0;
+}
+
+
+
+

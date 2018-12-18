@@ -42,18 +42,18 @@ PI_THREAD(LED_TIMER_THREAD)
 {   
     while(LED_TIMER > 0)
     {
-	state.led_display_active = 1;
-	delay(1);
-	if(LED_TIMER == 1)
-	{
-	    state.led_display_active = 0;
-	    LED_PWR(PWR_ON);
+	    state.led_display_active = 1;
+	    delay(1);
+	    if(LED_TIMER == 1)
+	    {
+	        state.led_display_active = 0;
+	        LED_PWR(PWR_ON);
 
-	    if(DEBUG_OPT) debug_out(DEBUG_OPT,
-				    "timer_thread",
-				    "timer expired");
-	}
-	LED_TIMER--;
+	        if(DEBUG_OPT) debug_out(DEBUG_OPT,
+		             		        "timer_thread",
+				                    "timer expired");
+	    }
+	    LED_TIMER--;
     }
 }
 
@@ -83,9 +83,9 @@ int main(int argc, char *argv[])
     //options from command line input
     if(option_handler(argc, argv))
     {
-	printf("OPTION ERROR\n");
-	exit_fn();
-	return 1;
+	    printf("OPTION ERROR\n");
+	    exit_fn();
+	    return 1;
     }
 
     if(SCRIPT_OPT && DEBUG_OPT)
@@ -108,53 +108,51 @@ int main(int argc, char *argv[])
         if(SCRIPT_OPT)
         {
             if(fscanf(fp_script, "%s", script_string) == EOF)
-	    {
-		if(DEBUG_OPT) debug_out(DEBUG_OPT,
-					"main_loop",
-					"end of script");
-		exit_fn();
-		return 0;
-	    }
-	    
-	    state.status = script_translate(script_string);
-	    
-	    if(state.status == -1)
-	    {
-		printf("Invalid Scripting command\n");
-		exit_fn();
-		return 1;
-	    }
+            {
+                if(DEBUG_OPT) debug_out(DEBUG_OPT,
+                            "main_loop",
+                            "end of script");
+                exit_fn();
+                return 0;
+            }
+            
+            state.status = script_translate(script_string);
+            
+            if(state.status == -1)
+            {
+                printf("Invalid Scripting command\n");
+                exit_fn();
+                return 1;
+            }
         }
 
         //if status has changed process the input        
         if((state.status != IDLE) && (!state.debounce_active)) 
         {
             startDebounceThread = piThreadCreate(BUTTON_DEBOUNCE);
-	    
-	    //if running from script delay for obseravtion
-	    if(SCRIPT_OPT) delay(SCRIPT_DELAY_MS);
+            
+            //if running from script delay for obseravtion
+            if(SCRIPT_OPT) delay(SCRIPT_DELAY_MS);
 
-	    if(DEBUG_OPT)
-	    {
-		sprintf(debug_msg, "status = %d", state.status);
-		debug_out(DEBUG_OPT, "main_switch", debug_msg);
-	    }
-		
+            if(DEBUG_OPT)
+            {
+                sprintf(debug_msg, "status = %d", state.status);
+                debug_out(DEBUG_OPT, "main_switch", debug_msg);
+            }     
 
             LED_TIMER = LED_TIMER_MS;           
             if(!state.led_display_active)
-	    {
-		startLedTimerThread = piThreadCreate(LED_TIMER_THREAD);
-	    } 
-
+            {
+                startLedTimerThread = piThreadCreate(LED_TIMER_THREAD);
+            } 
 
             switch(state.status) 
             {
-		/////////////////////////////////////////////////////
+		    /////////////////////////////////////////////////////
                 case PWR :
                     if(!UI_PWR(state.power ^ 1)) state.power ^= 1;
                     break;
-		/////////////////////////////////////////////////////                    
+		    /////////////////////////////////////////////////////                    
                 case VOL_UP:
                     while((uint8_t)readPCA9554() == VOL_UP)
                     {
@@ -169,7 +167,7 @@ int main(int argc, char *argv[])
                         delay(VOL_REPEAT_DELAY_MS);
                     }
                     break;
-		/////////////////////////////////////////////////////
+		    /////////////////////////////////////////////////////
                 case VOL_DOWN:
                     while((uint8_t)readPCA9554() == VOL_DOWN)
                     {
@@ -183,30 +181,28 @@ int main(int argc, char *argv[])
                         delay(VOL_REPEAT_DELAY_MS);
                     }
                     break;
-		/////////////////////////////////////////////////////
+		    /////////////////////////////////////////////////////
                 case SRC:
                     if(!state.avs_active)
                     {
                         if(!UI_SRC(state.source ^ 1)) state.source ^= 1;
                     }
                     break;
-		/////////////////////////////////////////////////////
+		    /////////////////////////////////////////////////////
                 default:
                     UI_ERROR();
                     break;    
             }
 
-	    if(DEBUG_OPT) debug_out(DEBUG_OPT,
-				    "main_switch",
-				    "returning to idle\n\n\n");
+	        if(DEBUG_OPT) debug_out(DEBUG_OPT,
+				                    "main_switch",
+				                    "returning to idle\n\n\n");
             state.status = IDLE;
         }
     }
     /************************************************
      END - UI LOOP
      ***********************************************/
-
-
 
     return 0;
 }
@@ -265,33 +261,34 @@ int option_handler(int argc, char *argv[])
 {
     if(argc > 1)
     {
-	if(!strcmp(argv[1], "-ds"))
-	{
-	    DEBUG_OPT = 1;  
-	}
-	else if(!strcmp(argv[1], "-df"))
-	{
-	    DEBUG_OPT = 2;
-	    debug_file_init();
-	}
-	else if(!strcmp(argv[1], "-dsf"))
-	{
-	    DEBUG_OPT = 3;
-	    debug_file_init();
-	}
-	else
-	{
-	    printf("invalid options...exiting");
-	    return 1;
-	}
+	    if(!strcmp(argv[1], "-ds"))
+	    {
+	        DEBUG_OPT = 1;  
+	    }
+	    else if(!strcmp(argv[1], "-df"))
+	    {
+	        DEBUG_OPT = 2;
+	        debug_file_init();
+	    }
+	    else if(!strcmp(argv[1], "-dsf"))
+	    {
+	        DEBUG_OPT = 3;
+	        debug_file_init();
+	    }
+	    else
+	    {
+	        printf("invalid options...exiting");
+	        return 1;
+	    }
     }
     if(argc > 2)
     {
-	fp_script = fopen(argv[2], "r");
-	strcpy(script_filename, argv[2]);
+	    fp_script = fopen(argv[2], "r");
+	    strcpy(script_filename, argv[2]);
 
-	SCRIPT_OPT = 1;
+	    SCRIPT_OPT = 1;
     }
+    
     return 0;
 }
 

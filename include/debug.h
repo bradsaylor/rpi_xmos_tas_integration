@@ -11,6 +11,7 @@ int debug_file_close();
 int debug_out(char DEBUG_OPT, char *id, char *msg);
 int debug_to_screen(char *id, char *msg);
 int debug_to_file(char *id, char *msg);
+char* get_time_stamp();
 /******************************************/
 
 /******************************************
@@ -21,7 +22,7 @@ MACRO DEFINITIONS
 #define DEBUG_FORMAT "%s:\t\t%s\n"
 
 /******************************************
-EXTERN DEFINITIONS
+GLOBAL VARIABLE DEFINITIONS
  ******************************************/
 extern FILE *fp;
 extern char debug_msg[50];

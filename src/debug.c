@@ -5,15 +5,16 @@
 #include "debug.h"
 #include "rpi_xmos_tas_integration.h"
 
+/*****************************************************************
+LOCAL VARIABLES
+*****************************************************************/
 char debug_msg[50]= "";
 char DEBUG_OPT = 0;
 
-char* get_time_stamp()
-{
-    time_t result = time(NULL);
-    return (ctime(&result));
-}
 
+/*****************************************************************
+INIT FUNCTION
+*****************************************************************/  
 int debug_file_init()
 {
     char filename[50];
@@ -22,15 +23,15 @@ int debug_file_init()
     int count = 0;
     while(*(time_stamp + count) != '\0')
     {
-	if(*(time_stamp + count) == ' ')
-	{
-	    *(time_stamp + count) = '_';
-	}
-	if(*(time_stamp + count) == '\n')
-	{
-	    *(time_stamp + count) = '\0';
-	}
-	count++;
+        if(*(time_stamp + count) == ' ')
+        {
+            *(time_stamp + count) = '_';
+        }
+        if(*(time_stamp + count) == '\n')
+        {
+            *(time_stamp + count) = '\0';
+        }
+        count++;
     }
 
     strcpy(filename, PATH_TO_LOG);
@@ -41,27 +42,24 @@ int debug_file_init()
     return 0;
 }
 
-int debug_file_close()
-{
-    fclose(fp_log);
 
-    return 0;
-}
-
+/*****************************************************************
+LOCAL FUNCTIONS
+*****************************************************************/ 
 int debug_out(char DEBUG_OPT, char *id, char *msg)
 {
     switch(DEBUG_OPT)
     {
-    case 1:
-	debug_to_screen(id, msg);
-	break;
-    case 2:
-	debug_to_file(id, msg);
-	break;
-    case 3:
-	debug_to_screen(id, msg);
-	debug_to_file(id, msg);
-	break;
+        case 1:
+            debug_to_screen(id, msg);
+            break;
+        case 2:
+            debug_to_file(id, msg);
+            break;
+        case 3:
+            debug_to_screen(id, msg);
+            debug_to_file(id, msg);
+            break;
     }
 
     return 0;
@@ -81,3 +79,15 @@ int debug_to_file(char *id, char *msg)
     return 0;
 }
 
+int debug_file_close()
+{
+    fclose(fp_log);
+
+    return 0;
+}
+
+char* get_time_stamp()
+{
+    time_t result = time(NULL);
+    return (ctime(&result));
+}

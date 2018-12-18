@@ -16,7 +16,14 @@ int LED_DISABLE();
 int LED_OUT_OF_RANGE();
 int LED_AVS_ACTIVE();
 
-/**********************************************************************************************/
+/*************************************
+GLOBAL VARIABLES
+ *************************************/
+extern const char PWM_REG[16]; 
+
+/*************************************
+MACROS
+ *************************************/
 #define TLC59116_ADDR 0x60
 
 #define LED_OUT_0_REG 0x14
@@ -38,10 +45,8 @@ int LED_AVS_ACTIVE();
 #define LED_OSC_ENABLE 0xEF
 #define LED_OSC_DISABLE 0x10
 
-extern const char PWM_REG[16]; 
 #define PWM_REG_DEFAULT 0x00
 
-/**********************************************************************************************/
 #define LED_RESET_STATE 0x00000000
 
 #define LED_1R_ON 0x00000003
@@ -81,7 +86,6 @@ extern const char PWM_REG[16];
 #define _5R 12
 #define _5G 13
 #define _5B 14
-/**********************************************************************************************/
 
 
 #endif //LED_FUNCTIONS_H

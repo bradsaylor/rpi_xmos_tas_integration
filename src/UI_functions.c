@@ -6,7 +6,9 @@
 #include <string.h>
 
 
-
+/*****************************************************************
+UI INIT FUNCTIONS
+*****************************************************************/
 int Buttons_init()
 {
     i2c_write(PCA9554A_ADDR, BUTTON_CONFIG_REG, BUTTON_CONFIG_REG_DEFAULT);
@@ -14,9 +16,9 @@ int Buttons_init()
     return 0;
 }
 
-/*************************************************************/
-
-
+/*****************************************************************
+BUTTON PRESS UI FUNCTIONS
+*****************************************************************/
 int UI_PWR(char power)
 {
     TAS_PWR(power);
@@ -48,11 +50,14 @@ int UI_ERROR()
     return 0;
 }
 
+/*****************************************************************
+READING BUTTON STATE
+*****************************************************************/
 int readPCA9554(){
 
     int result = i2c_read(PCA9554A_ADDR, BUTTON_READ_REG);
     
-     return result;
+    return result;
 }
 
 
