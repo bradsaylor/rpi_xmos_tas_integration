@@ -185,7 +185,7 @@ int main(int argc, char *argv[])
                     break;
 		/////////////////////////////////////////////////////
                 case SRC:
-                    if(state.avs_active)
+                    if(!state.avs_active)
                     {
                         if(!UI_SRC(state.source ^ 1)) state.source ^= 1;
                     }
@@ -248,6 +248,8 @@ int wiringPi_init()
 {
     wiringPiSetup();
     wiringPiISR (4, INT_EDGE_FALLING, &myInterrupt0) ;
+    pinMode(5, OUTPUT);
+    digitalWrite(5, HIGH);
     
     return 0;
 }

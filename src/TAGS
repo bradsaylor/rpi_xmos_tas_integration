@@ -228,19 +228,19 @@ int UI_SRC(char source)UI_SRC36,528
 int UI_ERROR()UI_ERROR44,627
 int readPCA9554(){readPCA955451,690
 
-LED_functions.c,569
-const char PWM_REG[16] = {0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8, 0x9,PWM_REG7,130
-int LED_init()LED_init10,248
-int LED_PWR(char power)LED_PWR32,967
-int LED_VOL(char volume)LED_VOL66,1670
-int LED_SRC(char source)LED_SRC184,6197
-int LED_ERROR()LED_ERROR216,6959
-int LED_i2c_write(unsigned long int led_state, char LED_PWM[16])LED_i2c_write227,7090
-int LED_ERROR_i2c()LED_ERROR_i2c249,7814
-int LED_ENABLE()LED_ENABLE256,7869
-int LED_DISABLE()LED_DISABLE265,8077
-int LED_AVS_ACTIVE()LED_AVS_ACTIVE275,8279
-int LED_OUT_OF_RANGE()LED_OUT_OF_RANGE302,8909
+LED_functions.c,570
+const char PWM_REG[16] = {0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8,  0x9,PWM_REG7,130
+int LED_init()LED_init10,249
+int LED_PWR(char power)LED_PWR32,968
+int LED_VOL(char volume)LED_VOL66,1671
+int LED_SRC(char source)LED_SRC184,6198
+int LED_ERROR()LED_ERROR216,6960
+int LED_i2c_write(unsigned long int led_state, char LED_PWM[16])LED_i2c_write227,7091
+int LED_ERROR_i2c()LED_ERROR_i2c249,7815
+int LED_ENABLE()LED_ENABLE256,7870
+int LED_DISABLE()LED_DISABLE265,8078
+int LED_AVS_ACTIVE()LED_AVS_ACTIVE275,8280
+int LED_OUT_OF_RANGE()LED_OUT_OF_RANGE302,8910
 
 TAS_functions.c,372
 const int ANA_DATA[18][3] = {ANA_DATA6,107
@@ -288,12 +288,12 @@ FILE *fp_log = NULL;fp_log36,921
 PI_THREAD(LED_TIMER_THREAD)PI_THREAD41,1099
 PI_THREAD(BUTTON_DEBOUNCE)PI_THREAD60,1421
 int main(int argc, char *argv[])main78,1923
-int initialize()initialize217,6051
-int wiringPi_init()wiringPi_init247,6643
-void myInterrupt0(void) {myInterrupt0256,6773
-int option_handler(int argc, char *argv[])option_handler262,6926
-int avs_detect()avs_detect296,7462
-int exit_fn()exit_fn316,7859
+int initialize()initialize217,6052
+int wiringPi_init()wiringPi_init247,6644
+void myInterrupt0(void) {myInterrupt0258,6827
+int option_handler(int argc, char *argv[])option_handler264,6980
+int avs_detect()avs_detect298,7516
+int exit_fn()exit_fn318,7913
 
 i2c.c,231
 int i2c_write(char addr, char reg, char data)i2c_write33,663
