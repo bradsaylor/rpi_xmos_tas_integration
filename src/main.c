@@ -236,6 +236,10 @@ int initialize()
 			    "end of init\n\n\n");
     
     state.status = IDLE;
+    
+    // add a button READ during init to clear 
+    // any interrupts on boot
+    readPCA9554(); 
 
     return 0;
 }
