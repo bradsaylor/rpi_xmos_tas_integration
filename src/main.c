@@ -35,6 +35,18 @@ char script_filename[50];
 FILE *fp_script = NULL;
 FILE *fp_log = NULL;
 
+/*************************************
+INTERNAL FUNCTION DECLARATIONS
+ *************************************/
+int initialize();
+int wiringPi_init();
+void myInterrupt0(void);
+int option_handler(int argc, char *argv[]);
+int avs_detect();
+int exit_fn();
+int start_LED_timer();
+
+
 /*****************************************************************
 THREAD FUNCTIONS
 *****************************************************************/
@@ -140,11 +152,6 @@ int main(int argc, char *argv[])
                 debug_out(DEBUG_OPT, "main_switch", debug_msg);
             }     
 
-            LED_TIMER = LED_TIMER_MS;           
-            if(!state.led_display_active)
-            {
-                startLedTimerThread = piThreadCreate(LED_TIMER_THREAD);
-            } 
 
             switch(state.status) 
             {
@@ -306,6 +313,7 @@ int avs_detect()
     while(digitalRead(2))
     {
         LED_AVS_ACTIVE();
+	start_LED_timer();
     }
 
     if(DEBUG_OPT) debug_out(DEBUG_OPT,
@@ -320,6 +328,17 @@ int exit_fn()
 {
     if((DEBUG_OPT == 2) || (DEBUG_OPT == 3)) debug_file_close;
     if(SCRIPT_OPT) fclose(fp_script);
+
+    return 0;
+}
+
+int start_LED_timer()
+{
+    LED_TIMER = LED_TIMER_MS;           
+    if(!state.led_display_active)
+    {
+	startLedTimerThread = piThreadCreate(LED_TIMER_THREAD);
+    } 
 
     return 0;
 }

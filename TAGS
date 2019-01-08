@@ -1,8 +1,8 @@
 
-../test/script_test/script.c,42
+test/script_test/script.c,42
 int main(int arc, char *argv[])main3,20
 
-../test/led_i2c_test/LED_functions.h,1852
+test/led_i2c_test/LED_functions.h,1852
 #define LED_FUNCTIONS_HLED_FUNCTIONS_H2,25
 #define TLC59116_ADDR TLC59116_ADDR20,559
 #define LED_OUT_0_REG LED_OUT_0_REG22,589
@@ -53,7 +53,7 @@ int main(int arc, char *argv[])main3,20
 #define _5G _5G82,1917
 #define _5B _5B83,1933
 
-../test/led_i2c_test/LED_functions.c,523
+test/led_i2c_test/LED_functions.c,523
 const char PWM_REG[16] = {0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8, 0x9,PWM_REG6,107
 int LED_init()LED_init9,225
 int LED_PWR(char power)LED_PWR31,944
@@ -66,33 +66,33 @@ int LED_ENABLE()LED_ENABLE255,7846
 int LED_DISABLE()LED_DISABLE264,8054
 int LED_OUT_OF_RANGE()LED_OUT_OF_RANGE273,8254
 
-../test/led_i2c_test/i2c.h,25
+test/led_i2c_test/i2c.h,25
 #define I2C_HI2C_H2,15
 
-../test/led_i2c_test/main.c,53
+test/led_i2c_test/main.c,53
 #define LED_ADDR LED_ADDR5,67
 int main()main7,90
 
-../test/led_i2c_test/i2c.c,180
+test/led_i2c_test/i2c.c,180
 int i2c_write(char addr, char reg, char data)i2c_write31,624
 int i2c_read(char addr, char reg)i2c_read46,968
 int i2c_write16(char addr, char reg, int data)i2c_write1663,1286
 
-../test/processor_usage/usage.c,21
+test/processor_usage/usage.c,21
 int main()main4,21
 
-../test/debug_test/makefile,0
+test/debug_test/makefile,0
 
-../test/debug_test/main.c,44
+test/debug_test/main.c,44
 int main(int argc, char *argv[])main8,109
 
-../test/debug_test/debug.h,159
+test/debug_test/debug.h,159
 #define DEBUG_HDEBUG_H2,16
 #define DEBUG_FILE_NAME DEBUG_FILE_NAME19,498
 #define PATH_TO_LOG PATH_TO_LOG20,539
 #define DEBUG_FORMAT DEBUG_FORMAT21,566
 
-../test/debug_test/debug.c,353
+test/debug_test/debug.c,353
 FILE *fp = NULL;fp6,77
 char* get_time_stamp()get_time_stamp8,95
 int debug_file_init()debug_file_init14,184
@@ -101,17 +101,17 @@ int debug_out(char DEBUG_OPT, char *id, char *msg)debug_out48,722
 int debug_to_screen(char *id, char *msg)debug_to_screen67,991
 int debug_to_file(char *id, char *msg)debug_to_file74,1087
 
-../test/PCA_i2c_test/main.c,21
+test/PCA_i2c_test/main.c,21
 int main()main6,68
 
-../include/UI_functions.h,255
+include/UI_functions.h,255
 #define UI_FUNCTIONS_HUI_FUNCTIONS_H2,24
 #define PCA9554A_ADDR PCA9554A_ADDR18,376
 #define BUTTON_CONFIG_REG BUTTON_CONFIG_REG20,417
 #define BUTTON_CONFIG_REG_DEFAULT BUTTON_CONFIG_REG_DEFAULT21,457
 #define BUTTON_READ_REG BUTTON_READ_REG23,499
 
-../include/LED_functions.h,1857
+include/LED_functions.h,1857
 #define LED_FUNCTIONS_HLED_FUNCTIONS_H2,25
 #define TLC59116_ADDR TLC59116_ADDR27,705
 #define LED_OUT_0_REG LED_OUT_0_REG29,735
@@ -162,48 +162,48 @@ int main()main6,68
 #define _5G _5G87,1931
 #define _5B _5B88,1947
 
-../include/i2c.h,25
+include/i2c.h,25
 #define I2C_HI2C_H2,15
 
-../include/rpi_xmos_tas_integration.h,909
+include/rpi_xmos_tas_integration.h,912
 #define RPI_XMOS_TAS_INTEGRATION_HRPI_XMOS_TAS_INTEGRATION_H2,36
-#define IDLE IDLE14,308
-#define PWR PWR15,331
-#define SRC SRC16,354
-#define VOL_UP VOL_UP17,377
-#define VOL_DOWN VOL_DOWN18,400
-#define OPT_SRC OPT_SRC20,425
-#define AUX_SRC AUX_SRC21,444
-#define PWR_OFF PWR_OFF23,465
-#define PWR_ON PWR_ON24,484
-#define LED_DISPLAY_OFF LED_DISPLAY_OFF26,504
-#define LED_DISPLAY_ON LED_DISPLAY_ON27,531
-#define AVS_OFF AVS_OFF29,559
-#define AVS_ON AVS_ON30,578
-#define DEBOUNCE_OFF DEBOUNCE_OFF32,598
-#define DEBOUNCE_ON DEBOUNCE_ON33,622
-#define NO_ERROR NO_ERROR35,647
-#define ERROR_DETECTED ERROR_DETECTED36,667
-#define LED_TIMER_MS LED_TIMER_MS38,695
-#define MAX_VOL MAX_VOL40,724
-#define MIN_VOL MIN_VOL41,744
-#define DEBOUNCE_TIME_MS DEBOUNCE_TIME_MS43,765
-#define SCRIPT_DELAY_MS SCRIPT_DELAY_MS44,795
-#define VOL_REPEAT_DELAY_MS VOL_REPEAT_DELAY_MS45,824
+#define IDLE IDLE25,563
+#define PWR PWR26,586
+#define SRC SRC27,609
+#define VOL_UP VOL_UP28,632
+#define VOL_DOWN VOL_DOWN29,655
+#define OPT_SRC OPT_SRC31,680
+#define AUX_SRC AUX_SRC32,699
+#define PWR_OFF PWR_OFF34,720
+#define PWR_ON PWR_ON35,739
+#define LED_DISPLAY_OFF LED_DISPLAY_OFF37,759
+#define LED_DISPLAY_ON LED_DISPLAY_ON38,786
+#define AVS_OFF AVS_OFF40,814
+#define AVS_ON AVS_ON41,833
+#define DEBOUNCE_OFF DEBOUNCE_OFF43,853
+#define DEBOUNCE_ON DEBOUNCE_ON44,877
+#define NO_ERROR NO_ERROR46,902
+#define ERROR_DETECTED ERROR_DETECTED47,922
+#define LED_TIMER_MS LED_TIMER_MS49,950
+#define MAX_VOL MAX_VOL51,979
+#define MIN_VOL MIN_VOL52,999
+#define DEBOUNCE_TIME_MS DEBOUNCE_TIME_MS54,1020
+#define SCRIPT_DELAY_MS SCRIPT_DELAY_MS55,1050
+#define VOL_REPEAT_DELAY_MS VOL_REPEAT_DELAY_MS56,1079
 
-../include/wiringPiI2C.h,0
+include/wiringPiI2C.h,0
 
-../include/script.h,79
+include/script.h,79
 #define SCRIPT_HSCRIPT_H2,17
 #define MAX_SCRIPT_LINE MAX_SCRIPT_LINE12,288
 
-../include/debug.h,159
+include/debug.h,159
 #define DEBUG_HDEBUG_H2,16
 #define DEBUG_FILE_NAME DEBUG_FILE_NAME20,522
 #define PATH_TO_LOG PATH_TO_LOG21,563
 #define DEBUG_FORMAT DEBUG_FORMAT22,593
 
-../include/TAS_functions.h,641
+include/TAS_functions.h,641
 #define TAS_FUNCTIONS_HTAS_FUNCTIONS_H2,25
 #define TAS_ADDR TAS_ADDR25,613
 #define TAS_VOL_REG TAS_VOL_REG27,638
@@ -220,7 +220,7 @@ int main()main6,68
 #define REG_INDEX REG_INDEX40,945
 #define DATA_INDEX DATA_INDEX41,967
 
-UI_functions.c,222
+src/UI_functions.c,222
 int Buttons_init()Buttons_init12,301
 int UI_PWR(char power)UI_PWR22,590
 int UI_VOL(char volume)UI_VOL30,681
@@ -228,7 +228,7 @@ int UI_SRC(char source)UI_SRC38,775
 int UI_ERROR()UI_ERROR46,874
 int readPCA9554(){readPCA955456,1095
 
-LED_functions.c,571
+src/LED_functions.c,571
 const char PWM_REG[16] = {0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8,  0x9,PWM_REG10,283
 int LED_init()LED_init17,569
 int LED_ENABLE()LED_ENABLE40,1385
@@ -242,7 +242,7 @@ int LED_OUT_OF_RANGE()LED_OUT_OF_RANGE282,8822
 int LED_i2c_write(unsigned long int led_state, char LED_PWM[16])LED_i2c_write316,9719
 int LED_ERROR_i2c()LED_ERROR_i2c338,10443
 
-TAS_functions.c,371
+src/TAS_functions.c,371
 const int ANA_DATA[18][3] = {ANA_DATA9,260
 const int OPT_DATA[27][3] = {OPT_DATA30,750
 const int volume_table[16] = {volume_table60,1468
@@ -252,11 +252,11 @@ int TAS_VOL(char volume)TAS_VOL117,2933
 int TAS_SRC(char source)TAS_SRC131,3196
 int TAS_i2c_write(char ADDR, char REG, int DATA)TAS_i2c_write171,4278
 
-script.c,95
+src/script.c,95
 char SCRIPT_OPT = 0;SCRIPT_OPT8,210
 char script_translate(char *str)script_translate13,383
 
-makefile,463
+src/makefile,463
 IDIR =../includeIDIR3,85
 CC=gccCC4,102
 CFLAGS=-g -I$(IDIR)CFLAGS5,109
@@ -268,7 +268,7 @@ DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))DEPS14,276
 _OBJ = i2c.o LED_functions.o TAS_functions.o UI_functions.o main.o debug.o script.o_OBJ16,317
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))OBJ17,401
 
-main.c,1131
+src/main.c,1084
 struct States {States20,535
     uint8_t status;status21,552
     uint8_t power;power22,573
@@ -285,24 +285,23 @@ volatile uint8_t startLedTimerThread;startLedTimerThread33,830
 char script_filename[50];script_filename34,869
 FILE *fp_script = NULL;fp_script35,896
 FILE *fp_log = NULL;fp_log36,921
-PI_THREAD(LED_TIMER_THREAD)PI_THREAD53,1387
-PI_THREAD(BUTTON_DEBOUNCE)PI_THREAD72,1778
-int main(int argc, char *argv[])main90,2280
-int initialize()initialize220,6559
-int wiringPi_init()wiringPi_init254,7257
-void myInterrupt0(void) {myInterrupt0265,7440
-int option_handler(int argc, char *argv[])option_handler271,7593
-int avs_detect()avs_detect306,8223
-int exit_fn()exit_fn327,8641
-int start_LED_timer()start_LED_timer335,8784
+PI_THREAD(LED_TIMER_THREAD)PI_THREAD41,1099
+PI_THREAD(BUTTON_DEBOUNCE)PI_THREAD60,1490
+int main(int argc, char *argv[])main78,1992
+int initialize()initialize213,6468
+int wiringPi_init()wiringPi_init247,7166
+void myInterrupt0(void) {myInterrupt0258,7349
+int option_handler(int argc, char *argv[])option_handler264,7502
+int avs_detect()avs_detect299,8132
+int exit_fn()exit_fn319,8529
 
-i2c.c,228
+src/i2c.c,228
 int i2c_write(char addr, char reg, char data)i2c_write9,240
 int i2c_read(char addr, char reg)i2c_read26,619
 int i2c_write16(char addr, char reg, int data)i2c_write1643,975
 int i2c_close_file(int fd)i2c_close_file61,1359
 
-debug.c,412
+src/debug.c,412
 char debug_msg[50]= "";debug_msg11,266
 char DEBUG_OPT = 0;DEBUG_OPT12,290
 int debug_file_init()debug_file_init18,462
