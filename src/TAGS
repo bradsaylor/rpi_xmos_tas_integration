@@ -165,7 +165,7 @@ int main()main6,68
 ../include/i2c.h,25
 #define I2C_HI2C_H2,15
 
-../include/rpi_xmos_tas_integration.h,909
+../include/rpi_xmos_tas_integration.h,945
 #define RPI_XMOS_TAS_INTEGRATION_HRPI_XMOS_TAS_INTEGRATION_H2,36
 #define IDLE IDLE14,308
 #define PWR PWR15,331
@@ -190,6 +190,7 @@ int main()main6,68
 #define DEBOUNCE_TIME_MS DEBOUNCE_TIME_MS43,765
 #define SCRIPT_DELAY_MS SCRIPT_DELAY_MS44,795
 #define VOL_REPEAT_DELAY_MS VOL_REPEAT_DELAY_MS45,824
+#define I2C_DEBUG I2C_DEBUG47,859
 
 ../include/wiringPiI2C.h,0
 
@@ -288,19 +289,19 @@ FILE *fp_log = NULL;fp_log36,921
 PI_THREAD(LED_TIMER_THREAD)PI_THREAD53,1387
 PI_THREAD(BUTTON_DEBOUNCE)PI_THREAD72,1778
 int main(int argc, char *argv[])main90,2280
-int initialize()initialize220,6559
-int wiringPi_init()wiringPi_init254,7257
-void myInterrupt0(void) {myInterrupt0265,7440
-int option_handler(int argc, char *argv[])option_handler271,7593
-int avs_detect()avs_detect306,8223
-int exit_fn()exit_fn327,8641
-int start_LED_timer()start_LED_timer335,8784
+int initialize()initialize221,6584
+int wiringPi_init()wiringPi_init255,7282
+void myInterrupt0(void) {myInterrupt0266,7465
+int option_handler(int argc, char *argv[])option_handler272,7618
+int avs_detect()avs_detect307,8248
+int exit_fn()exit_fn328,8666
+int start_LED_timer()start_LED_timer336,8809
 
-i2c.c,228
-int i2c_write(char addr, char reg, char data)i2c_write9,240
-int i2c_read(char addr, char reg)i2c_read26,619
-int i2c_write16(char addr, char reg, int data)i2c_write1643,975
-int i2c_close_file(int fd)i2c_close_file61,1359
+i2c.c,230
+int i2c_write(char addr, char reg, char data)i2c_write10,279
+int i2c_read(char addr, char reg)i2c_read27,671
+int i2c_write16(char addr, char reg, int data)i2c_write1644,1040
+int i2c_close_file(int fd)i2c_close_file62,1437
 
 debug.c,412
 char debug_msg[50]= "";debug_msg11,266

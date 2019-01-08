@@ -152,6 +152,7 @@ int main(int argc, char *argv[])
                 debug_out(DEBUG_OPT, "main_switch", debug_msg);
             }     
 
+	    start_LED_timer();
 
             switch(state.status) 
             {
@@ -313,14 +314,15 @@ int avs_detect()
     while(digitalRead(2))
     {
         LED_AVS_ACTIVE();
-	start_LED_timer();
+
     }
 
     if(DEBUG_OPT) debug_out(DEBUG_OPT,
 	         	    "AVS_detect_thread",
 			    "*****AVS FINISHED*****");
     UI_VOL(state.volume);
-
+    start_LED_timer();
+    
     return 0;
 }
 
